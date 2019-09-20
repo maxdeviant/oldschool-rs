@@ -122,9 +122,15 @@ pub fn level_from_xp(xp: f32) -> i32 {
     unreachable!()
 }
 
+pub fn xp_til_level(xp: f32, target_level: i32) -> f32 {
+    let required_xp = XP_TABLE.get(&target_level).unwrap().clone() as f32;
+
+    f32::max(required_xp - xp, 0.0)
+}
+
 #[cfg(test)]
 mod tests {
-    use super::level_from_xp;
+    use super::{level_from_xp, xp_til_level};
 
     #[test]
     fn test_level_from_xp_with_0_xp() {
@@ -142,7 +148,12 @@ mod tests {
     }
 
     #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
+    fn test_xp_til_level() {
+        assert_eq!(xp_til_level(1_000.0, 10), 154.0);
+    }
+
+    #[test]
+    fn test_xp_til_level_with_passed_level() {
+        assert_eq!(xp_til_level(1_629_200.0, 30), 0.0);
     }
 }
