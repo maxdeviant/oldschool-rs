@@ -61,6 +61,7 @@ mod tests {
         assert_eq!(wintertodt.brazier_attack_damage(), 10);
     }
 
+    #[ignore]
     #[test]
     fn test_area_attack_damage() {
         let wintertodt = Wintertodt {
