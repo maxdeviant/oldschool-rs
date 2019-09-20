@@ -111,10 +111,13 @@ lazy_static! {
     };
 }
 
+fn xp_for_level(level: i32) -> f32 {
+    XP_TABLE.get(&level).unwrap().clone() as f32
+}
+
 pub fn level_from_xp(xp: f32) -> i32 {
     for level in 1..99 {
-        let xp_for_level = XP_TABLE.get(&level).unwrap().clone() as f32;
-        if xp < xp_for_level {
+        if xp < xp_for_level(level) {
             return if level > 1 { level - 1 } else { 1 };
         }
     }
@@ -123,9 +126,7 @@ pub fn level_from_xp(xp: f32) -> i32 {
 }
 
 pub fn xp_til_level(xp: f32, target_level: i32) -> f32 {
-    let required_xp = XP_TABLE.get(&target_level).unwrap().clone() as f32;
-
-    f32::max(required_xp - xp, 0.0)
+    f32::max(xp_for_level(target_level) - xp, 0.0)
 }
 
 #[cfg(test)]
