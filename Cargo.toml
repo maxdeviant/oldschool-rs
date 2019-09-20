@@ -1,7 +1,12 @@
 [package]
 name = "oldschool"
 version = "0.0.1"
+description = "Algorithms for Old School RuneScape."
+repository = "https://github.com/maxdeviant/oldschool-rs"
+categories = ["games"]
+keywords = ["osrs", "runescape"]
 authors = ["Marshall Bowers <elliott.codes@gmail.com>"]
+license = "MIT"
 edition = "2018"
 
 [dependencies]
