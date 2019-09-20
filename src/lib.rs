@@ -129,6 +129,25 @@ pub fn xp_til_level(xp: f32, target_level: i32) -> f32 {
     f32::max(xp_for_level(target_level) - xp, 0.0)
 }
 
+pub fn progress_towards_level(xp: f32, target_level: i32, starting_level: Option<i32>) -> f32 {
+    let current_level = level_from_xp(xp);
+    if current_level >= target_level {
+        return 100.0;
+    }
+
+    let starting_xp = starting_level
+        .map(|starting_level| {
+            if starting_level > current_level {
+                0.0
+            } else {
+                xp - xp_for_level(starting_level)
+            }
+        })
+        .unwrap_or(0.0);
+
+    (xp - starting_xp) / xp_for_level(target_level)
+}
+
 #[cfg(test)]
 mod tests {
     use super::{level_from_xp, xp_til_level};
