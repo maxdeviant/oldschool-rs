@@ -1,6 +1,6 @@
 [package]
-name = "osrs"
-version = "0.1.0"
+name = "oldschool"
+version = "0.0.1"
 authors = ["Marshall Bowers <elliott.codes@gmail.com>"]
 edition = "2018"
 
