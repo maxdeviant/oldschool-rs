@@ -4,7 +4,7 @@ use lazy_static::lazy_static;
 
 pub mod wintertodt;
 
-#[derive(Debug, Copy, Clone, PartialEq, PartialOrd)]
+#[derive(Debug, Copy, Clone, PartialEq, PartialOrd, Default)]
 pub struct Xp(pub f32);
 
 impl Xp {
@@ -23,6 +23,12 @@ impl std::ops::Sub<Xp> for Xp {
 
 #[derive(Debug, Hash, Eq, PartialEq, Ord, PartialOrd)]
 pub struct Level(pub i32);
+
+impl Default for Level {
+    fn default() -> Self {
+        Level(1)
+    }
+}
 
 lazy_static! {
     static ref XP_TABLE: HashMap<Level, Xp> = vec![
@@ -141,7 +147,7 @@ pub fn level_from_xp(xp: Xp) -> Level {
             return if level > 1 {
                 Level(level - 1)
             } else {
-                Level(1)
+                Level::default()
             };
         }
     }
@@ -150,7 +156,7 @@ pub fn level_from_xp(xp: Xp) -> Level {
 }
 
 pub fn xp_til_level(xp: Xp, target_level: &Level) -> Xp {
-    Xp::max(xp_for_level(target_level) - xp, Xp(0.0))
+    Xp::max(xp_for_level(target_level) - xp, Xp::default())
 }
 
 pub fn progress_towards_level(xp: Xp, target_level: &Level, starting_level: Option<&Level>) -> f32 {
@@ -162,12 +168,12 @@ pub fn progress_towards_level(xp: Xp, target_level: &Level, starting_level: Opti
     let starting_xp = starting_level
         .map(|starting_level| {
             if starting_level > &current_level {
-                Xp(0.0)
+                Xp::default()
             } else {
                 xp - xp_for_level(starting_level)
             }
         })
-        .unwrap_or(Xp(0.0));
+        .unwrap_or_default();
 
     (xp - starting_xp).0 / xp_for_level(target_level).0
 }
