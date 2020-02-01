@@ -3,6 +3,7 @@ use std::collections::HashMap;
 use lazy_static::lazy_static;
 
 pub mod wintertodt;
+pub mod optimal_quest_guide;
 
 #[derive(Debug, Copy, Clone, PartialEq, PartialOrd, Default)]
 pub struct Xp(pub f32);
