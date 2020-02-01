@@ -919,6 +919,130 @@ lazy_static! {
                 QuestRequirement::Quest(UNDERGROUND_PASS),
                 QuestRequirement::Quest(WATERFALL_QUEST),
             ]
+        },
+        Quest {
+            id: RUNE_MYSTERIES,
+            name: "Rune Mysteries".into(),
+            kind: QuestKind::Free,
+            requirements: vec![]
+        },
+        Quest {
+            id: BIG_CHOMPY_BIRD_HUNTING,
+            name: "Big Chompy Bird Hunting".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(5), Skill::Fletching).build()
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(30), Skill::Cooking)
+                        .boostable()
+                        .build()
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(30), Skill::Ranged).build()
+                ),
+            ]
+        },
+        Quest {
+            id: ELEMENTAL_WORKSHOP_I,
+            name: "Elemental Workshop I".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(20), Skill::Mining).build()
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(20), Skill::Smithing).build()
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(20), Skill::Crafting).build()
+                ),
+            ]
+        },
+        Quest {
+            id: PRIEST_IN_PERIL,
+            name: "Priest in Peril".into(),
+            kind: QuestKind::Members,
+            requirements: vec![]
+        },
+        Quest {
+            id: NATURE_SPIRIT,
+            name: "Nature Spirit".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Quest(PRIEST_IN_PERIL),
+                QuestRequirement::Quest(THE_RESTLESS_GHOST),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(18), Skill::Crafting)
+                        .ironman_only()
+                        .build()
+                ),
+            ]
+        },
+        Quest {
+            id: DEATH_PLATEAU,
+            name: "Death Plateau".into(),
+            kind: QuestKind::Members,
+            requirements: vec![]
+        },
+        Quest {
+            id: TROLL_STRONGHOLD,
+            name: "Troll Stronghold".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Quest(DEATH_PLATEAU),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(15), Skill::Agility).build()
+                ),
+            ]
+        },
+        Quest {
+            id: TAI_BWO_WANNAI_TRIO,
+            name: "Tai Bwo Wannai Trio".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(15), Skill::Agility).build()
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(30), Skill::Cooking).build()
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(5), Skill::Fishing).build()
+                ),
+                QuestRequirement::Quest(JUNGLE_POTION)
+            ]
+        },
+        Quest {
+            id: REGICIDE,
+            name: "Regicide".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Quest(UNDERGROUND_PASS),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(56), Skill::Agility)
+                        .boostable()
+                        .build()
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(10), Skill::Crafting).build()
+                ),
+            ]
+        },
+        Quest {
+            id: EADGARS_RUSE,
+            name: "Eadgar's Ruse".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Quest(DRUIDIC_RITUAL),
+                QuestRequirement::Quest(TROLL_STRONGHOLD),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(31), Skill::Herblore)
+                        .boostable()
+                        .build()
+                ),
+            ]
         }
     ]
     .into_iter()
