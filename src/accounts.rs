@@ -1,3 +1,4 @@
+use crate::quests::QuestId;
 use crate::{Level, Xp};
 
 #[derive(Debug)]
@@ -7,6 +8,7 @@ pub struct CombatLevel(i32);
 pub struct Account {
     pub display_name: String,
     pub skills: Skills,
+    pub completed_quests: Vec<QuestId>,
 }
 
 impl Account {
