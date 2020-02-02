@@ -1632,6 +1632,174 @@ fn all_quests() -> Vec<Quest> {
         },
         // TODO: Add Recipe for Disaster. We just need to figure out how to
         // represent its subquests.
+        Quest {
+            id: IN_AID_OF_THE_MYREQUE,
+            name: "In Aid of the Myreque".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Quest(IN_SEARCH_OF_THE_MYREQUE),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(25), Skill::Crafting).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(15), Skill::Mining).build(),
+                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(7), Skill::Magic).build()),
+            ],
+        },
+        Quest {
+            id: A_SOULS_BANE,
+            name: "A Soul's Bane".into(),
+            kind: QuestKind::Members,
+            requirements: vec![],
+        },
+        Quest {
+            id: RAG_AND_BONE_MAN,
+            name: "Rag and Bone Man".into(),
+            kind: QuestKind::Members,
+            requirements: vec![],
+        },
+        Quest {
+            id: RAG_AND_BONE_MAN_II,
+            name: "Rag and Bone Man II".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(40), Skill::Slayer).build(),
+                ),
+                QuestRequirement::Quest(RAG_AND_BONE_MAN),
+                // TODO: Figure out how to represent other partial quest requirements.
+            ],
+        },
+        Quest {
+            id: SWAN_SONG,
+            name: "Swan Song".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::QuestPoints(100),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(66), Skill::Magic)
+                        .boostable()
+                        .build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(62), Skill::Cooking)
+                        .boostable()
+                        .build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(62), Skill::Fishing)
+                        .boostable()
+                        .build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(45), Skill::Smithing)
+                        .boostable()
+                        .build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(42), Skill::Firemaking).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(40), Skill::Crafting).build(),
+                ),
+                QuestRequirement::Quest(ONE_SMALL_FAVOUR),
+                QuestRequirement::Quest(GARDEN_OF_TRANQUILLITY),
+            ],
+        },
+        Quest {
+            id: ROYAL_TROUBLE,
+            name: "Royal Trouble".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(40), Skill::Agility)
+                        .boostable()
+                        .build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(40), Skill::Slayer)
+                        .boostable()
+                        .build(),
+                ),
+                QuestRequirement::Quest(THRONE_OF_MISCELLANIA),
+            ],
+        },
+        Quest {
+            id: DEATH_TO_THE_DORGESHUUN,
+            name: "Death to the Dorgeshuun".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Quest(THE_LOST_TRIBE),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(23), Skill::Agility).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(23), Skill::Thieving).build(),
+                ),
+            ],
+        },
+        Quest {
+            id: FAIRY_TALE_II_CURE_A_QUEEN,
+            name: "Fairy Tale II - Cure a Queen".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Quest(FAIRY_TALE_I_GROWING_PAINS),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(40), Skill::Thieving).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(49), Skill::Farming)
+                        .boostable()
+                        .build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(57), Skill::Herblore)
+                        .boostable()
+                        .build(),
+                ),
+            ],
+        },
+        Quest {
+            id: LUNAR_DIPLOMACY,
+            name: "Lunar Diplomacy".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(61), Skill::Crafting).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(40), Skill::Defence).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(49), Skill::Firemaking).build(),
+                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(65), Skill::Magic).build()),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(60), Skill::Mining).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(55), Skill::Woodcutting).build(),
+                ),
+                QuestRequirement::Quest(THE_FREMENNIK_TRIALS),
+                QuestRequirement::Quest(LOST_CITY),
+                QuestRequirement::Quest(RUNE_MYSTERIES),
+                QuestRequirement::Quest(SHILO_VILLAGE),
+            ],
+        },
+        Quest {
+            id: THE_EYES_OF_GLOUPHRIE,
+            name: "The Eyes of Glouphrie".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(5), Skill::Construction).build(),
+                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(46), Skill::Magic).build()),
+                // TODO: Figure out how to represent requirements to get a maple log.
+                QuestRequirement::Quest(THE_GRAND_TREE),
+            ],
+        },
     ]
 }
 
