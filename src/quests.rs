@@ -2,8 +2,8 @@ use std::collections::HashMap;
 
 use lazy_static::lazy_static;
 
-use crate::Level;
 use crate::skills::Skill;
+use crate::Level;
 
 lazy_static! {
     pub static ref QUEST_LIST: HashMap<QuestId, Quest> = all_quests()
@@ -33,6 +33,10 @@ pub struct Quest {
 impl Quest {
     pub fn id(&self) -> QuestId {
         self.id
+    }
+
+    pub fn name(&self) -> &str {
+        &self.name
     }
 }
 
