@@ -3,6 +3,7 @@ use std::collections::HashMap;
 use lazy_static::lazy_static;
 
 pub mod optimal_quest_guide;
+pub mod quests;
 pub mod wintertodt;
 
 #[derive(Debug, Copy, Clone, PartialEq, PartialOrd, Default)]
