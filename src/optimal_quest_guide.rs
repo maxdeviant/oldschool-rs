@@ -1484,6 +1484,154 @@ fn all_quests() -> Vec<Quest> {
                 ),
             ],
         },
+        Quest {
+            id: SHADOW_OF_THE_STORM,
+            name: "Shadow of the Storm".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(30), Skill::Crafting)
+                        .boostable()
+                        .build(),
+                ),
+                QuestRequirement::Quest(THE_GOLEM),
+                QuestRequirement::Quest(DEMON_SLAYER),
+            ],
+        },
+        Quest {
+            id: MAKING_HISTORY,
+            name: "Making History".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Quest(PRIEST_IN_PERIL),
+                QuestRequirement::Quest(THE_RESTLESS_GHOST),
+            ],
+        },
+        Quest {
+            id: RATCATCHERS,
+            name: "Ratcatchers".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Quest(ICTHLARINS_LITTLE_HELPER),
+                QuestRequirement::Quest(GERTRUDES_CAT),
+                // TODO: Figure out how to represent access to Keldagrim requirement.
+            ],
+        },
+        Quest {
+            id: SPIRITS_OF_THE_ELID,
+            name: "Spirits of the Elid".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(33), Skill::Magic)
+                        .boostable()
+                        .build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(37), Skill::Ranged)
+                        .boostable()
+                        .build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(37), Skill::Mining).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(37), Skill::Thieving)
+                        .boostable()
+                        .build(),
+                ),
+            ],
+        },
+        Quest {
+            id: DEVIOUS_MINDS,
+            name: "Devious Minds".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(65), Skill::Smithing)
+                        .boostable()
+                        .build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(50), Skill::Runecraft).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(50), Skill::Fletching).build(),
+                ),
+                QuestRequirement::Quest(WANTED),
+                QuestRequirement::Quest(TROLL_STRONGHOLD),
+                QuestRequirement::Quest(DORICS_QUEST),
+                QuestRequirement::Quest(ENTER_THE_ABYSS),
+            ],
+        },
+        Quest {
+            id: THE_HAND_IN_THE_SAND,
+            name: "The Hand in the Sand".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(17), Skill::Thieving).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(49), Skill::Crafting).build(),
+                ),
+            ],
+        },
+        Quest {
+            id: ENAKHRAS_LAMENT,
+            name: "Enakhra's Lament".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(50), Skill::Crafting).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(45), Skill::Firemaking).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(43), Skill::Prayer).build(),
+                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(39), Skill::Magic).build()),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(45), Skill::Mining)
+                        .ironman_only()
+                        .build(),
+                ),
+            ],
+        },
+        Quest {
+            id: CABIN_FEVER,
+            name: "Cabin Fever".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Quest(PIRATES_TREASURE),
+                QuestRequirement::Quest(RUM_DEAL),
+                QuestRequirement::Quest(PRIEST_IN_PERIL),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(42), Skill::Agility).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(25), Skill::Crafting).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(50), Skill::Smithing).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(40), Skill::Ranged).build(),
+                ),
+            ],
+        },
+        Quest {
+            id: FAIRY_TALE_I_GROWING_PAINS,
+            name: "Fairy Tail I - Growing Pains".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Quest(LOST_CITY),
+                QuestRequirement::Quest(NATURE_SPIRIT),
+            ],
+        },
+        // TODO: Add Recipe for Disaster. We just need to figure out how to
+        // represent its subquests.
     ]
 }
 
