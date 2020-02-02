@@ -15,7 +15,7 @@ lazy_static! {
 #[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub struct QuestId(i32);
 
-#[derive(Debug, Copy, Clone)]
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum QuestKind {
     Free,
     Members,
