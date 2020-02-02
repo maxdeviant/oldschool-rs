@@ -5,8 +5,8 @@ pub struct CombatLevel(i32);
 
 #[derive(Debug)]
 pub struct Account {
-    display_name: String,
-    skills: Skills,
+    pub display_name: String,
+    pub skills: Skills,
 }
 
 impl Account {
