@@ -2,6 +2,7 @@ use std::collections::HashMap;
 
 use lazy_static::lazy_static;
 
+pub mod accounts;
 pub mod optimal_quest_guide;
 pub mod quests;
 pub mod skills;
@@ -30,6 +31,12 @@ pub struct Level(pub i32);
 impl Default for Level {
     fn default() -> Self {
         Level(1)
+    }
+}
+
+impl From<Xp> for Level {
+    fn from(xp: Xp) -> Self {
+        level_from_xp(xp)
     }
 }
 
