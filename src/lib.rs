@@ -4,6 +4,7 @@ use lazy_static::lazy_static;
 
 pub mod optimal_quest_guide;
 pub mod quests;
+pub mod skills;
 pub mod wintertodt;
 
 #[derive(Debug, Copy, Clone, PartialEq, PartialOrd, Default)]

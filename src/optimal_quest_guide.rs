@@ -1,4 +1,5 @@
-use crate::quests::{self, QuestId, Skill};
+use crate::quests::{self, QuestId};
+use crate::skills::Skill;
 use crate::Level;
 
 pub enum OptimalQuestGuideStep {

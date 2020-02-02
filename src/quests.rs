@@ -3,6 +3,7 @@ use std::collections::HashMap;
 use lazy_static::lazy_static;
 
 use crate::Level;
+use crate::skills::Skill;
 
 lazy_static! {
     pub static ref QUEST_LIST: HashMap<QuestId, Quest> = all_quests()
@@ -33,33 +34,6 @@ impl Quest {
     pub fn id(&self) -> QuestId {
         self.id
     }
-}
-
-#[derive(Debug)]
-pub enum Skill {
-    Attack,
-    Defence,
-    Strength,
-    Hitpoints,
-    Ranged,
-    Prayer,
-    Magic,
-    Cooking,
-    Woodcutting,
-    Fletching,
-    Fishing,
-    Firemaking,
-    Crafting,
-    Smithing,
-    Mining,
-    Herblore,
-    Agility,
-    Thieving,
-    Slayer,
-    Farming,
-    Runecraft,
-    Hunter,
-    Construction,
 }
 
 #[derive(Debug)]
