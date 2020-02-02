@@ -1369,6 +1369,165 @@ lazy_static! {
                         .build()
                 ),
             ]
+        },
+        Quest {
+            id: THE_LOST_TRIBE,
+            name: "The Lost Tribe".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Quest(GOBLIN_DIPLOMACY),
+                QuestRequirement::Quest(RUNE_MYSTERIES),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(12), Skill::Agility)
+                        .build()
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(13), Skill::Thieving)
+                        .build()
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(17), Skill::Mining)
+                        .build()
+                ),
+            ]
+        },
+        Quest {
+            id: THE_GIANT_DWARF,
+            name: "The Giant Dwarf".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(12), Skill::Crafting)
+                        .build()
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(16), Skill::Firemaking)
+                        .build()
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(33), Skill::Magic)
+                        .build()
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(14), Skill::Thieving)
+                        .build()
+                ),
+            ]
+        },
+        Quest {
+            id: RECRUITMENT_DRIVE,
+            name: "Recruitment Drive".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::QuestPoints(12),
+                QuestRequirement::Quest(BLACK_KNIGHTS_FORTRESS),
+                QuestRequirement::Quest(DRUIDIC_RITUAL),
+            ]
+        },
+        Quest {
+            id: MOURNINGS_END_PART_I,
+            name: "Mourning's End Part I".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(60), Skill::Ranged)
+                        .build()
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(50), Skill::Thieving)
+                        .boostable()
+                        .build()
+                ),
+                QuestRequirement::Quest(ROVING_ELVES),
+                QuestRequirement::Quest(BIG_CHOMPY_BIRD_HUNTING),
+                QuestRequirement::Quest(SHEEP_HERDER),
+            ]
+        },
+        Quest {
+            id: FORGETTABLE_TALE_OF_A_DRUNKEN_DWARF,
+            name: "Forgettable Tale of a Drunken Dwarf".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(22), Skill::Cooking)
+                        .build()
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(17), Skill::Farming)
+                        .build()
+                ),
+                QuestRequirement::Quest(THE_GIANT_DWARF),
+                QuestRequirement::Quest(FISHING_CONTEST),
+            ]
+        },
+        Quest {
+            id: GARDEN_OF_TRANQUILLITY,
+            name: "Garden of Tranquillity".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(25), Skill::Farming)
+                        .build()
+                ),
+                QuestRequirement::Quest(CREATURE_OF_FENKENSTRAIN),
+            ]
+        },
+        Quest {
+            id: A_TAIL_OF_TWO_CATS,
+            name: "A Tail of Two Cats".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Quest(ICTHLARINS_LITTLE_HELPER)
+            ]
+        },
+        Quest {
+            id: WANTED,
+            name: "Wanted!".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::QuestPoints(32),
+                QuestRequirement::Quest(RECRUITMENT_DRIVE),
+                QuestRequirement::Quest(THE_LOST_TRIBE),
+                QuestRequirement::Quest(PRIEST_IN_PERIL),
+                QuestRequirement::Quest(ENTER_THE_ABYSS),
+            ]
+        },
+        Quest {
+            id: MOURNINGS_END_PART_II,
+            name: "Mourning's End Part II".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Quest(MOURNINGS_END_PART_I)
+            ]
+        },
+        Quest {
+            id: RUM_DEAL,
+            name: "Rum Deal".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Quest(ZOGRE_FLESH_EATERS),
+                QuestRequirement::Quest(PRIEST_IN_PERIL),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(42), Skill::Crafting)
+                        .boostable()
+                        .build()
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(50), Skill::Fishing)
+                        .boostable()
+                        .build()
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(40), Skill::Farming)
+                        .boostable()
+                        .build()
+                ),
+                // TODO: Figure out how to represent 47 Prayer points requirement.
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(42), Skill::Slayer)
+                        .build()
+                ),
+            ]
         }
     ]
     .into_iter()
