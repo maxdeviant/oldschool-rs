@@ -421,105 +421,105 @@ pub const THE_MAGE_ARENA_II: QuestId = QuestId(-12);
 
 pub const SKIPPY_AND_THE_MOGRES: QuestId = QuestId(-13);
 
-lazy_static! {
-    pub static ref QUEST_LIST: HashMap<QuestId, Quest> = vec![
+fn all_quests() -> Vec<Quest> {
+    vec![
         Quest {
             id: COOKS_ASSISTANT,
             name: "Cook's Assistant".into(),
             kind: QuestKind::Free,
-            requirements: vec![]
+            requirements: vec![],
         },
         Quest {
             id: DEMON_SLAYER,
             name: "Demon Slayer".into(),
             kind: QuestKind::Free,
-            requirements: vec![]
+            requirements: vec![],
         },
         Quest {
             id: THE_RESTLESS_GHOST,
             name: "The Restless Ghost".into(),
             kind: QuestKind::Free,
-            requirements: vec![]
+            requirements: vec![],
         },
         Quest {
             id: ROMEO_AND_JULIET,
             name: "Romeo & Juliet".into(),
             kind: QuestKind::Free,
-            requirements: vec![]
+            requirements: vec![],
         },
         Quest {
             id: SHEEP_SHEARER,
             name: "Sheep Shearer".into(),
             kind: QuestKind::Free,
-            requirements: vec![]
+            requirements: vec![],
         },
         Quest {
             id: SHIELD_OF_ARRAV,
             name: "Shield of Arrav".into(),
             kind: QuestKind::Free,
-            requirements: vec![]
+            requirements: vec![],
         },
         Quest {
             id: ERNEST_THE_CHICKEN,
             name: "Ernest the Chicken".into(),
             kind: QuestKind::Free,
-            requirements: vec![]
+            requirements: vec![],
         },
         Quest {
             id: VAMPIRE_SLAYER,
             name: "Vampire Slayer".into(),
             kind: QuestKind::Free,
-            requirements: vec![]
+            requirements: vec![],
         },
         Quest {
             id: IMP_CATCHER,
             name: "Imp Catcher".into(),
             kind: QuestKind::Free,
-            requirements: vec![]
+            requirements: vec![],
         },
         Quest {
             id: PRINCE_ALI_RESCUE,
             name: "Prince Ali Rescue".into(),
             kind: QuestKind::Free,
-            requirements: vec![]
+            requirements: vec![],
         },
         Quest {
             id: DORICS_QUEST,
             name: "Doric's Quest".into(),
             kind: QuestKind::Free,
-            requirements: vec![]
+            requirements: vec![],
         },
         Quest {
             id: BLACK_KNIGHTS_FORTRESS,
             name: "Black Knights' Fortress".into(),
             kind: QuestKind::Free,
-            requirements: vec![QuestRequirement::QuestPoints(12)]
+            requirements: vec![QuestRequirement::QuestPoints(12)],
         },
         Quest {
             id: WITCHS_POTION,
             name: "Witch's Potion".into(),
             kind: QuestKind::Free,
-            requirements: vec![]
+            requirements: vec![],
         },
         Quest {
             id: THE_KNIGHTS_SWORD,
             name: "The Knight's Sword".into(),
             kind: QuestKind::Free,
             requirements: vec![QuestRequirement::Skill(
-                SkillRequirement::builder(Level(10), Skill::Mining).build()
-            )]
+                SkillRequirement::builder(Level(10), Skill::Mining).build(),
+            )],
         },
         Quest {
             id: GOBLIN_DIPLOMACY,
             name: "Goblin Diplomacy".into(),
             kind: QuestKind::Free,
-            requirements: vec![]
+            requirements: vec![],
         },
         Quest {
             id: PIRATES_TREASURE,
             name: "Pirate's Treasure".into(),
             kind: QuestKind::Free,
-            requirements: vec![]
+            requirements: vec![],
         },
         Quest {
             id: DRAGON_SLAYER,
@@ -530,15 +530,15 @@ lazy_static! {
                 QuestRequirement::Skill(
                     SkillRequirement::builder(Level(8), Skill::Crafting)
                         .ironman_only()
-                        .build()
+                        .build(),
                 ),
-            ]
+            ],
         },
         Quest {
             id: DRUIDIC_RITUAL,
             name: "Druidic Ritual".into(),
             kind: QuestKind::Members,
-            requirements: vec![]
+            requirements: vec![],
         },
         Quest {
             id: LOST_CITY,
@@ -548,24 +548,24 @@ lazy_static! {
                 QuestRequirement::Skill(
                     SkillRequirement::builder(Level(31), Skill::Crafting)
                         .boostable()
-                        .build()
+                        .build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(36), Skill::Woodcutting).build()
+                    SkillRequirement::builder(Level(36), Skill::Woodcutting).build(),
                 ),
-            ]
+            ],
         },
         Quest {
             id: WITCHS_HOUSE,
             name: "Witch's House".into(),
             kind: QuestKind::Members,
-            requirements: vec![]
+            requirements: vec![],
         },
         Quest {
             id: MERLINS_CRYSTAL,
             name: "Merlin's Crystal".into(),
             kind: QuestKind::Members,
-            requirements: vec![]
+            requirements: vec![],
         },
         Quest {
             id: HEROES_QUEST,
@@ -581,24 +581,24 @@ lazy_static! {
                 QuestRequirement::Skill(
                     SkillRequirement::builder(Level(53), Skill::Cooking)
                         .boostable()
-                        .build()
+                        .build(),
                 ),
                 QuestRequirement::Skill(
                     SkillRequirement::builder(Level(53), Skill::Fishing)
                         .boostable()
-                        .build()
+                        .build(),
                 ),
                 QuestRequirement::Skill(
                     SkillRequirement::builder(Level(25), Skill::Herblore)
                         .boostable()
-                        .build()
+                        .build(),
                 ),
                 QuestRequirement::Skill(
                     SkillRequirement::builder(Level(50), Skill::Mining)
                         .boostable()
-                        .build()
-                )
-            ]
+                        .build(),
+                ),
+            ],
         },
         Quest {
             id: SCORPION_CATCHER,
@@ -608,10 +608,10 @@ lazy_static! {
                 QuestRequirement::Skill(
                     SkillRequirement::builder(Level(31), Skill::Prayer)
                         .boostable()
-                        .build()
+                        .build(),
                 ),
-                QuestRequirement::Quest(ALFRED_GRIMHANDS_BARCRAWL)
-            ]
+                QuestRequirement::Quest(ALFRED_GRIMHANDS_BARCRAWL),
+            ],
         },
         Quest {
             id: FAMILY_CREST,
@@ -621,46 +621,46 @@ lazy_static! {
                 QuestRequirement::Skill(
                     SkillRequirement::builder(Level(40), Skill::Mining)
                         .boostable()
-                        .build()
+                        .build(),
                 ),
                 QuestRequirement::Skill(
                     SkillRequirement::builder(Level(40), Skill::Smithing)
                         .boostable()
-                        .build()
+                        .build(),
                 ),
                 QuestRequirement::Skill(
                     SkillRequirement::builder(Level(59), Skill::Magic)
                         .boostable()
-                        .build()
+                        .build(),
                 ),
                 QuestRequirement::Skill(
                     SkillRequirement::builder(Level(40), Skill::Crafting)
                         .boostable()
-                        .build()
+                        .build(),
                 ),
-            ]
+            ],
         },
         Quest {
             id: TRIBAL_TOTEM,
             name: "Tribal Totem".into(),
             kind: QuestKind::Members,
             requirements: vec![QuestRequirement::Skill(
-                SkillRequirement::builder(Level(21), Skill::Thieving).build()
-            )]
+                SkillRequirement::builder(Level(21), Skill::Thieving).build(),
+            )],
         },
         Quest {
             id: FISHING_CONTEST,
             name: "Fishing Contest".into(),
             kind: QuestKind::Members,
             requirements: vec![QuestRequirement::Skill(
-                SkillRequirement::builder(Level(10), Skill::Fishing).build()
-            )]
+                SkillRequirement::builder(Level(10), Skill::Fishing).build(),
+            )],
         },
         Quest {
             id: MONKS_FRIEND,
             name: "Monk's Friend".into(),
             kind: QuestKind::Members,
-            requirements: vec![]
+            requirements: vec![],
         },
         Quest {
             id: TEMPLE_OF_IKOV,
@@ -670,18 +670,18 @@ lazy_static! {
                 QuestRequirement::Skill(
                     SkillRequirement::builder(Level(42), Skill::Thieving)
                         .boostable()
-                        .build()
+                        .build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(40), Skill::Ranged).build()
-                )
-            ]
+                    SkillRequirement::builder(Level(40), Skill::Ranged).build(),
+                ),
+            ],
         },
         Quest {
             id: CLOCK_TOWER,
             name: "Clock Tower".into(),
             kind: QuestKind::Members,
-            requirements: vec![]
+            requirements: vec![],
         },
         Quest {
             id: HOLY_GRAIL,
@@ -690,65 +690,65 @@ lazy_static! {
             requirements: vec![
                 QuestRequirement::Quest(MERLINS_CRYSTAL),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(20), Skill::Attack).build()
-                )
-            ]
+                    SkillRequirement::builder(Level(20), Skill::Attack).build(),
+                ),
+            ],
         },
         Quest {
             id: TREE_GNOME_VILLAGE,
             name: "Tree Gnome Village".into(),
             kind: QuestKind::Members,
-            requirements: vec![]
+            requirements: vec![],
         },
         Quest {
             id: FIGHT_ARENA,
             name: "Fight Arena".into(),
             kind: QuestKind::Members,
-            requirements: vec![]
+            requirements: vec![],
         },
         Quest {
             id: HAZEEL_CULT,
             name: "Hazeel Cult".into(),
             kind: QuestKind::Members,
-            requirements: vec![]
+            requirements: vec![],
         },
         Quest {
             id: SHEEP_HERDER,
             name: "Sheep Herder".into(),
             kind: QuestKind::Members,
-            requirements: vec![]
+            requirements: vec![],
         },
         Quest {
             id: PLAGUE_CITY,
             name: "Plague City".into(),
             kind: QuestKind::Members,
-            requirements: vec![]
+            requirements: vec![],
         },
         Quest {
             id: SEA_SLUG,
             name: "Sea Slug".into(),
             kind: QuestKind::Members,
             requirements: vec![QuestRequirement::Skill(
-                SkillRequirement::builder(Level(30), Skill::Firemaking).build()
-            )]
+                SkillRequirement::builder(Level(30), Skill::Firemaking).build(),
+            )],
         },
         Quest {
             id: WATERFALL_QUEST,
             name: "Waterfall Quest".into(),
             kind: QuestKind::Members,
-            requirements: vec![]
+            requirements: vec![],
         },
         Quest {
             id: BIOHAZARD,
             name: "Biohazard".into(),
             kind: QuestKind::Members,
-            requirements: vec![QuestRequirement::Quest(PLAGUE_CITY)]
+            requirements: vec![QuestRequirement::Quest(PLAGUE_CITY)],
         },
         Quest {
             id: JUNGLE_POTION,
             name: "Jungle Potion".into(),
             kind: QuestKind::Members,
-            requirements: vec![QuestRequirement::Quest(DRUIDIC_RITUAL)]
+            requirements: vec![QuestRequirement::Quest(DRUIDIC_RITUAL)],
         },
         Quest {
             id: THE_GRAND_TREE,
@@ -757,8 +757,8 @@ lazy_static! {
             requirements: vec![QuestRequirement::Skill(
                 SkillRequirement::builder(Level(25), Skill::Agility)
                     .boostable()
-                    .build()
-            )]
+                    .build(),
+            )],
         },
         Quest {
             id: SHILO_VILLAGE,
@@ -767,20 +767,20 @@ lazy_static! {
             requirements: vec![
                 QuestRequirement::Quest(JUNGLE_POTION),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(20), Skill::Crafting).build()
+                    SkillRequirement::builder(Level(20), Skill::Crafting).build(),
                 ),
                 QuestRequirement::Skill(
                     SkillRequirement::builder(Level(32), Skill::Agility)
                         .boostable()
-                        .build()
+                        .build(),
                 ),
                 QuestRequirement::Skill(
                     SkillRequirement::builder(Level(4), Skill::Smithing)
                         .ironman_only()
                         .boostable()
-                        .build()
-                )
-            ]
+                        .build(),
+                ),
+            ],
         },
         Quest {
             id: UNDERGROUND_PASS,
@@ -788,16 +788,16 @@ lazy_static! {
             kind: QuestKind::Members,
             requirements: vec![
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(25), Skill::Ranged).build()
+                    SkillRequirement::builder(Level(25), Skill::Ranged).build(),
                 ),
                 QuestRequirement::Quest(BIOHAZARD),
-            ]
+            ],
         },
         Quest {
             id: OBSERVATORY_QUEST,
             name: "Observatory Quest".into(),
             kind: QuestKind::Members,
-            requirements: vec![]
+            requirements: vec![],
         },
         Quest {
             id: THE_TOURIST_TRAP,
@@ -805,12 +805,12 @@ lazy_static! {
             kind: QuestKind::Members,
             requirements: vec![
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(10), Skill::Fletching).build()
+                    SkillRequirement::builder(Level(10), Skill::Fletching).build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(20), Skill::Smithing).build()
+                    SkillRequirement::builder(Level(20), Skill::Smithing).build(),
                 ),
-            ]
+            ],
         },
         Quest {
             id: WATCHTOWER,
@@ -819,32 +819,32 @@ lazy_static! {
             requirements: vec![
                 QuestRequirement::Skill(SkillRequirement::builder(Level(15), Skill::Magic).build()),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(15), Skill::Thieving).build()
+                    SkillRequirement::builder(Level(15), Skill::Thieving).build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(25), Skill::Agility).build()
+                    SkillRequirement::builder(Level(25), Skill::Agility).build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(14), Skill::Herblore).build()
+                    SkillRequirement::builder(Level(14), Skill::Herblore).build(),
                 ),
                 QuestRequirement::Skill(
                     SkillRequirement::builder(Level(40), Skill::Mining)
                         .boostable()
-                        .build()
+                        .build(),
                 ),
-            ]
+            ],
         },
         Quest {
             id: DWARF_CANNON,
             name: "Dwarf Cannon".into(),
             kind: QuestKind::Members,
-            requirements: vec![]
+            requirements: vec![],
         },
         Quest {
             id: MURDER_MYSTERY,
             name: "Murder Mystery".into(),
             kind: QuestKind::Members,
-            requirements: vec![]
+            requirements: vec![],
         },
         Quest {
             id: THE_DIG_SITE,
@@ -853,21 +853,21 @@ lazy_static! {
             requirements: vec![
                 QuestRequirement::Quest(DRUIDIC_RITUAL),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(10), Skill::Agility).build()
+                    SkillRequirement::builder(Level(10), Skill::Agility).build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(10), Skill::Herblore).build()
+                    SkillRequirement::builder(Level(10), Skill::Herblore).build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(25), Skill::Thieving).build()
+                    SkillRequirement::builder(Level(25), Skill::Thieving).build(),
                 ),
-            ]
+            ],
         },
         Quest {
             id: GERTRUDES_CAT,
             name: "Gertrude's Cat".into(),
             kind: QuestKind::Members,
-            requirements: vec![]
+            requirements: vec![],
         },
         Quest {
             id: LEGENDS_QUEST,
@@ -878,53 +878,53 @@ lazy_static! {
                 QuestRequirement::Skill(
                     SkillRequirement::builder(Level(50), Skill::Agility)
                         .boostable()
-                        .build()
+                        .build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(50), Skill::Crafting).build()
+                    SkillRequirement::builder(Level(50), Skill::Crafting).build(),
                 ),
                 QuestRequirement::Skill(
                     SkillRequirement::builder(Level(45), Skill::Herblore)
                         .boostable()
-                        .build()
+                        .build(),
                 ),
                 QuestRequirement::Skill(SkillRequirement::builder(Level(56), Skill::Magic).build()),
                 QuestRequirement::Skill(
                     SkillRequirement::builder(Level(52), Skill::Mining)
                         .boostable()
-                        .build()
+                        .build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(42), Skill::Prayer).build()
+                    SkillRequirement::builder(Level(42), Skill::Prayer).build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(50), Skill::Smithing).build()
+                    SkillRequirement::builder(Level(50), Skill::Smithing).build(),
                 ),
                 QuestRequirement::Skill(
                     SkillRequirement::builder(Level(50), Skill::Strength)
                         .boostable()
-                        .build()
+                        .build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(50), Skill::Thieving).build()
+                    SkillRequirement::builder(Level(50), Skill::Thieving).build(),
                 ),
                 QuestRequirement::Skill(
                     SkillRequirement::builder(Level(50), Skill::Woodcutting)
                         .boostable()
-                        .build()
+                        .build(),
                 ),
                 QuestRequirement::Quest(FAMILY_CREST),
                 QuestRequirement::Quest(HEROES_QUEST),
                 QuestRequirement::Quest(SHILO_VILLAGE),
                 QuestRequirement::Quest(UNDERGROUND_PASS),
                 QuestRequirement::Quest(WATERFALL_QUEST),
-            ]
+            ],
         },
         Quest {
             id: RUNE_MYSTERIES,
             name: "Rune Mysteries".into(),
             kind: QuestKind::Free,
-            requirements: vec![]
+            requirements: vec![],
         },
         Quest {
             id: BIG_CHOMPY_BIRD_HUNTING,
@@ -932,17 +932,17 @@ lazy_static! {
             kind: QuestKind::Members,
             requirements: vec![
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(5), Skill::Fletching).build()
+                    SkillRequirement::builder(Level(5), Skill::Fletching).build(),
                 ),
                 QuestRequirement::Skill(
                     SkillRequirement::builder(Level(30), Skill::Cooking)
                         .boostable()
-                        .build()
+                        .build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(30), Skill::Ranged).build()
+                    SkillRequirement::builder(Level(30), Skill::Ranged).build(),
                 ),
-            ]
+            ],
         },
         Quest {
             id: ELEMENTAL_WORKSHOP_I,
@@ -950,21 +950,21 @@ lazy_static! {
             kind: QuestKind::Members,
             requirements: vec![
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(20), Skill::Mining).build()
+                    SkillRequirement::builder(Level(20), Skill::Mining).build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(20), Skill::Smithing).build()
+                    SkillRequirement::builder(Level(20), Skill::Smithing).build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(20), Skill::Crafting).build()
+                    SkillRequirement::builder(Level(20), Skill::Crafting).build(),
                 ),
-            ]
+            ],
         },
         Quest {
             id: PRIEST_IN_PERIL,
             name: "Priest in Peril".into(),
             kind: QuestKind::Members,
-            requirements: vec![]
+            requirements: vec![],
         },
         Quest {
             id: NATURE_SPIRIT,
@@ -976,15 +976,15 @@ lazy_static! {
                 QuestRequirement::Skill(
                     SkillRequirement::builder(Level(18), Skill::Crafting)
                         .ironman_only()
-                        .build()
+                        .build(),
                 ),
-            ]
+            ],
         },
         Quest {
             id: DEATH_PLATEAU,
             name: "Death Plateau".into(),
             kind: QuestKind::Members,
-            requirements: vec![]
+            requirements: vec![],
         },
         Quest {
             id: TROLL_STRONGHOLD,
@@ -993,9 +993,9 @@ lazy_static! {
             requirements: vec![
                 QuestRequirement::Quest(DEATH_PLATEAU),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(15), Skill::Agility).build()
+                    SkillRequirement::builder(Level(15), Skill::Agility).build(),
                 ),
-            ]
+            ],
         },
         Quest {
             id: TAI_BWO_WANNAI_TRIO,
@@ -1003,16 +1003,16 @@ lazy_static! {
             kind: QuestKind::Members,
             requirements: vec![
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(15), Skill::Agility).build()
+                    SkillRequirement::builder(Level(15), Skill::Agility).build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(30), Skill::Cooking).build()
+                    SkillRequirement::builder(Level(30), Skill::Cooking).build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(5), Skill::Fishing).build()
+                    SkillRequirement::builder(Level(5), Skill::Fishing).build(),
                 ),
-                QuestRequirement::Quest(JUNGLE_POTION)
-            ]
+                QuestRequirement::Quest(JUNGLE_POTION),
+            ],
         },
         Quest {
             id: REGICIDE,
@@ -1023,12 +1023,12 @@ lazy_static! {
                 QuestRequirement::Skill(
                     SkillRequirement::builder(Level(56), Skill::Agility)
                         .boostable()
-                        .build()
+                        .build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(10), Skill::Crafting).build()
+                    SkillRequirement::builder(Level(10), Skill::Crafting).build(),
                 ),
-            ]
+            ],
         },
         Quest {
             id: EADGARS_RUSE,
@@ -1040,9 +1040,9 @@ lazy_static! {
                 QuestRequirement::Skill(
                     SkillRequirement::builder(Level(31), Skill::Herblore)
                         .boostable()
-                        .build()
+                        .build(),
                 ),
-            ]
+            ],
         },
         Quest {
             id: SHADES_OF_MORTTON,
@@ -1050,15 +1050,15 @@ lazy_static! {
             kind: QuestKind::Members,
             requirements: vec![
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(20), Skill::Crafting).build()
+                    SkillRequirement::builder(Level(20), Skill::Crafting).build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(15), Skill::Herblore).build()
+                    SkillRequirement::builder(Level(15), Skill::Herblore).build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(5), Skill::Firemaking).build()
+                    SkillRequirement::builder(Level(5), Skill::Firemaking).build(),
                 ),
-            ]
+            ],
         },
         Quest {
             id: THE_FREMENNIK_TRIALS,
@@ -1067,7 +1067,7 @@ lazy_static! {
             requirements: vec![
                 // TODO: Figure out how to represent skill requirements for
                 // crafting the lyre.
-            ]
+            ],
         },
         Quest {
             id: HORROR_FROM_THE_DEEP,
@@ -1077,10 +1077,10 @@ lazy_static! {
                 QuestRequirement::Skill(
                     SkillRequirement::builder(Level(35), Skill::Agility)
                         .boostable()
-                        .build()
+                        .build(),
                 ),
-                QuestRequirement::Quest(ALFRED_GRIMHANDS_BARCRAWL)
-            ]
+                QuestRequirement::Quest(ALFRED_GRIMHANDS_BARCRAWL),
+            ],
         },
         Quest {
             id: THRONE_OF_MISCELLANIA,
@@ -1091,7 +1091,7 @@ lazy_static! {
                 QuestRequirement::Quest(THE_FREMENNIK_TRIALS),
                 // TODO: Figure out how to represent skill requirements for
                 // gaining favor.
-            ]
+            ],
         },
         Quest {
             id: MONKEY_MADNESS_I,
@@ -1099,8 +1099,8 @@ lazy_static! {
             kind: QuestKind::Members,
             requirements: vec![
                 QuestRequirement::Quest(THE_GRAND_TREE),
-                QuestRequirement::Quest(TREE_GNOME_VILLAGE)
-            ]
+                QuestRequirement::Quest(TREE_GNOME_VILLAGE),
+            ],
         },
         Quest {
             id: HAUNTED_MINE,
@@ -1108,15 +1108,13 @@ lazy_static! {
             kind: QuestKind::Members,
             requirements: vec![
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(15), Skill::Agility)
-                        .build()
+                    SkillRequirement::builder(Level(15), Skill::Agility).build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(35), Skill::Crafting)
-                        .build()
+                    SkillRequirement::builder(Level(35), Skill::Crafting).build(),
                 ),
-                QuestRequirement::Quest(PRIEST_IN_PERIL)
-            ]
+                QuestRequirement::Quest(PRIEST_IN_PERIL),
+            ],
         },
         Quest {
             id: TROLL_ROMANCE,
@@ -1124,13 +1122,12 @@ lazy_static! {
             kind: QuestKind::Members,
             requirements: vec![
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(28), Skill::Agility)
-                        .build()
+                    SkillRequirement::builder(Level(28), Skill::Agility).build(),
                 ),
                 QuestRequirement::Quest(TROLL_STRONGHOLD),
                 // TODO: Figure out how to represent skill requirements for
                 // obtaining a maple or yew log for ironmen.
-            ]
+            ],
         },
         Quest {
             id: IN_SEARCH_OF_THE_MYREQUE,
@@ -1141,9 +1138,9 @@ lazy_static! {
                 QuestRequirement::Skill(
                     SkillRequirement::builder(Level(25), Skill::Agility)
                         .boostable()
-                        .build()
+                        .build(),
                 ),
-            ]
+            ],
         },
         Quest {
             id: CREATURE_OF_FENKENSTRAIN,
@@ -1153,14 +1150,12 @@ lazy_static! {
                 QuestRequirement::Quest(PRIEST_IN_PERIL),
                 QuestRequirement::Quest(THE_RESTLESS_GHOST),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(20), Skill::Crafting)
-                        .build()
+                    SkillRequirement::builder(Level(20), Skill::Crafting).build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(25), Skill::Thieving)
-                        .build()
+                    SkillRequirement::builder(Level(25), Skill::Thieving).build(),
                 ),
-            ]
+            ],
         },
         Quest {
             id: ROVING_ELVES,
@@ -1172,9 +1167,9 @@ lazy_static! {
                 QuestRequirement::Skill(
                     SkillRequirement::builder(Level(56), Skill::Agility)
                         .boostable()
-                        .build()
+                        .build(),
                 ),
-            ]
+            ],
         },
         Quest {
             id: GHOSTS_AHOY,
@@ -1186,14 +1181,14 @@ lazy_static! {
                 QuestRequirement::Skill(
                     SkillRequirement::builder(Level(25), Skill::Agility)
                         .boostable()
-                        .build()
+                        .build(),
                 ),
                 QuestRequirement::Skill(
                     SkillRequirement::builder(Level(20), Skill::Cooking)
                         .boostable()
-                        .build()
+                        .build(),
                 ),
-            ]
+            ],
         },
         Quest {
             id: ONE_SMALL_FAVOUR,
@@ -1203,37 +1198,34 @@ lazy_static! {
                 QuestRequirement::Skill(
                     SkillRequirement::builder(Level(36), Skill::Agility)
                         .boostable()
-                        .build()
+                        .build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(25), Skill::Crafting)
-                        .build()
+                    SkillRequirement::builder(Level(25), Skill::Crafting).build(),
                 ),
                 QuestRequirement::Skill(
                     SkillRequirement::builder(Level(18), Skill::Herblore)
                         .boostable()
-                        .build()
+                        .build(),
                 ),
                 QuestRequirement::Skill(
                     SkillRequirement::builder(Level(30), Skill::Smithing)
                         .boostable()
-                        .build()
+                        .build(),
                 ),
                 QuestRequirement::Quest(RUNE_MYSTERIES),
                 QuestRequirement::Quest(SHILO_VILLAGE),
-            ]
+            ],
         },
         Quest {
             id: MOUNTAIN_DAUGHTER,
             name: "Mountain Daughter".into(),
             kind: QuestKind::Members,
-            requirements: vec![
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(20), Skill::Agility)
-                        .boostable()
-                        .build()
-                ),
-            ]
+            requirements: vec![QuestRequirement::Skill(
+                SkillRequirement::builder(Level(20), Skill::Agility)
+                    .boostable()
+                    .build(),
+            )],
         },
         Quest {
             id: BETWEEN_A_ROCK,
@@ -1243,31 +1235,27 @@ lazy_static! {
                 QuestRequirement::Quest(DWARF_CANNON),
                 QuestRequirement::Quest(FISHING_CONTEST),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(30), Skill::Defence)
-                        .build()
+                    SkillRequirement::builder(Level(30), Skill::Defence).build(),
                 ),
                 QuestRequirement::Skill(
                     SkillRequirement::builder(Level(40), Skill::Mining)
                         .boostable()
-                        .build()
+                        .build(),
                 ),
                 QuestRequirement::Skill(
                     SkillRequirement::builder(Level(50), Skill::Smithing)
                         .boostable()
-                        .build()
+                        .build(),
                 ),
-            ]
+            ],
         },
         Quest {
             id: THE_FEUD,
             name: "The Feud".into(),
             kind: QuestKind::Members,
-            requirements: vec![
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(30), Skill::Thieving)
-                        .build()
-                ),
-            ]
+            requirements: vec![QuestRequirement::Skill(
+                SkillRequirement::builder(Level(30), Skill::Thieving).build(),
+            )],
         },
         Quest {
             id: THE_GOLEM,
@@ -1275,15 +1263,14 @@ lazy_static! {
             kind: QuestKind::Members,
             requirements: vec![
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(20), Skill::Crafting)
-                        .build()
+                    SkillRequirement::builder(Level(20), Skill::Crafting).build(),
                 ),
                 QuestRequirement::Skill(
                     SkillRequirement::builder(Level(25), Skill::Thieving)
                         .boostable()
-                        .build()
+                        .build(),
                 ),
-            ]
+            ],
         },
         Quest {
             id: DESERT_TREASURE,
@@ -1291,38 +1278,30 @@ lazy_static! {
             kind: QuestKind::Members,
             requirements: vec![
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(53), Skill::Thieving)
-                        .build()
+                    SkillRequirement::builder(Level(53), Skill::Thieving).build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(50), Skill::Firemaking)
-                        .build()
+                    SkillRequirement::builder(Level(50), Skill::Firemaking).build(),
                 ),
                 // TODO: Figure out how to represent that the Slayer requirement
                 // is optional if you have a Gas mask from Plague City.
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(10), Skill::Slayer)
-                        .build()
+                    SkillRequirement::builder(Level(10), Skill::Slayer).build(),
                 ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(50), Skill::Magic)
-                        .build()
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(50), Skill::Magic).build()),
                 QuestRequirement::Quest(THE_DIG_SITE),
                 QuestRequirement::Quest(TEMPLE_OF_IKOV),
                 QuestRequirement::Quest(THE_TOURIST_TRAP),
                 QuestRequirement::Quest(TROLL_STRONGHOLD),
                 QuestRequirement::Quest(PRIEST_IN_PERIL),
                 QuestRequirement::Quest(WATERFALL_QUEST),
-            ]
+            ],
         },
         Quest {
             id: ICTHLARINS_LITTLE_HELPER,
             name: "Ichlarin's Little Helper".into(),
             kind: QuestKind::Members,
-            requirements: vec![
-                QuestRequirement::Quest(GERTRUDES_CAT)
-            ]
+            requirements: vec![QuestRequirement::Quest(GERTRUDES_CAT)],
         },
         Quest {
             id: TEARS_OF_GUTHIX,
@@ -1331,18 +1310,15 @@ lazy_static! {
             requirements: vec![
                 QuestRequirement::QuestPoints(43),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(49), Skill::Firemaking)
-                        .build()
+                    SkillRequirement::builder(Level(49), Skill::Firemaking).build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(20), Skill::Crafting)
-                        .build()
+                    SkillRequirement::builder(Level(20), Skill::Crafting).build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(20), Skill::Mining)
-                        .build()
+                    SkillRequirement::builder(Level(20), Skill::Mining).build(),
                 ),
-            ]
+            ],
         },
         Quest {
             id: ZOGRE_FLESH_EATERS,
@@ -1352,23 +1328,20 @@ lazy_static! {
                 QuestRequirement::Quest(BIG_CHOMPY_BIRD_HUNTING),
                 QuestRequirement::Quest(JUNGLE_POTION),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(4), Skill::Smithing)
-                        .build()
+                    SkillRequirement::builder(Level(4), Skill::Smithing).build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(8), Skill::Herblore)
-                        .build()
+                    SkillRequirement::builder(Level(8), Skill::Herblore).build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(30), Skill::Ranged)
-                        .build()
+                    SkillRequirement::builder(Level(30), Skill::Ranged).build(),
                 ),
                 QuestRequirement::Skill(
                     SkillRequirement::builder(Level(30), Skill::Fletching)
                         .ironman_only()
-                        .build()
+                        .build(),
                 ),
-            ]
+            ],
         },
         Quest {
             id: THE_LOST_TRIBE,
@@ -1378,18 +1351,15 @@ lazy_static! {
                 QuestRequirement::Quest(GOBLIN_DIPLOMACY),
                 QuestRequirement::Quest(RUNE_MYSTERIES),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(12), Skill::Agility)
-                        .build()
+                    SkillRequirement::builder(Level(12), Skill::Agility).build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(13), Skill::Thieving)
-                        .build()
+                    SkillRequirement::builder(Level(13), Skill::Thieving).build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(17), Skill::Mining)
-                        .build()
+                    SkillRequirement::builder(Level(17), Skill::Mining).build(),
                 ),
-            ]
+            ],
         },
         Quest {
             id: THE_GIANT_DWARF,
@@ -1397,22 +1367,16 @@ lazy_static! {
             kind: QuestKind::Members,
             requirements: vec![
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(12), Skill::Crafting)
-                        .build()
+                    SkillRequirement::builder(Level(12), Skill::Crafting).build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(16), Skill::Firemaking)
-                        .build()
+                    SkillRequirement::builder(Level(16), Skill::Firemaking).build(),
                 ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(33), Skill::Magic).build()),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(33), Skill::Magic)
-                        .build()
+                    SkillRequirement::builder(Level(14), Skill::Thieving).build(),
                 ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(14), Skill::Thieving)
-                        .build()
-                ),
-            ]
+            ],
         },
         Quest {
             id: RECRUITMENT_DRIVE,
@@ -1422,7 +1386,7 @@ lazy_static! {
                 QuestRequirement::QuestPoints(12),
                 QuestRequirement::Quest(BLACK_KNIGHTS_FORTRESS),
                 QuestRequirement::Quest(DRUIDIC_RITUAL),
-            ]
+            ],
         },
         Quest {
             id: MOURNINGS_END_PART_I,
@@ -1430,18 +1394,17 @@ lazy_static! {
             kind: QuestKind::Members,
             requirements: vec![
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(60), Skill::Ranged)
-                        .build()
+                    SkillRequirement::builder(Level(60), Skill::Ranged).build(),
                 ),
                 QuestRequirement::Skill(
                     SkillRequirement::builder(Level(50), Skill::Thieving)
                         .boostable()
-                        .build()
+                        .build(),
                 ),
                 QuestRequirement::Quest(ROVING_ELVES),
                 QuestRequirement::Quest(BIG_CHOMPY_BIRD_HUNTING),
                 QuestRequirement::Quest(SHEEP_HERDER),
-            ]
+            ],
         },
         Quest {
             id: FORGETTABLE_TALE_OF_A_DRUNKEN_DWARF,
@@ -1449,16 +1412,14 @@ lazy_static! {
             kind: QuestKind::Members,
             requirements: vec![
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(22), Skill::Cooking)
-                        .build()
+                    SkillRequirement::builder(Level(22), Skill::Cooking).build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(17), Skill::Farming)
-                        .build()
+                    SkillRequirement::builder(Level(17), Skill::Farming).build(),
                 ),
                 QuestRequirement::Quest(THE_GIANT_DWARF),
                 QuestRequirement::Quest(FISHING_CONTEST),
-            ]
+            ],
         },
         Quest {
             id: GARDEN_OF_TRANQUILLITY,
@@ -1466,19 +1427,16 @@ lazy_static! {
             kind: QuestKind::Members,
             requirements: vec![
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(25), Skill::Farming)
-                        .build()
+                    SkillRequirement::builder(Level(25), Skill::Farming).build(),
                 ),
                 QuestRequirement::Quest(CREATURE_OF_FENKENSTRAIN),
-            ]
+            ],
         },
         Quest {
             id: A_TAIL_OF_TWO_CATS,
             name: "A Tail of Two Cats".into(),
             kind: QuestKind::Members,
-            requirements: vec![
-                QuestRequirement::Quest(ICTHLARINS_LITTLE_HELPER)
-            ]
+            requirements: vec![QuestRequirement::Quest(ICTHLARINS_LITTLE_HELPER)],
         },
         Quest {
             id: WANTED,
@@ -1490,15 +1448,13 @@ lazy_static! {
                 QuestRequirement::Quest(THE_LOST_TRIBE),
                 QuestRequirement::Quest(PRIEST_IN_PERIL),
                 QuestRequirement::Quest(ENTER_THE_ABYSS),
-            ]
+            ],
         },
         Quest {
             id: MOURNINGS_END_PART_II,
             name: "Mourning's End Part II".into(),
             kind: QuestKind::Members,
-            requirements: vec![
-                QuestRequirement::Quest(MOURNINGS_END_PART_I)
-            ]
+            requirements: vec![QuestRequirement::Quest(MOURNINGS_END_PART_I)],
         },
         Quest {
             id: RUM_DEAL,
@@ -1510,27 +1466,30 @@ lazy_static! {
                 QuestRequirement::Skill(
                     SkillRequirement::builder(Level(42), Skill::Crafting)
                         .boostable()
-                        .build()
+                        .build(),
                 ),
                 QuestRequirement::Skill(
                     SkillRequirement::builder(Level(50), Skill::Fishing)
                         .boostable()
-                        .build()
+                        .build(),
                 ),
                 QuestRequirement::Skill(
                     SkillRequirement::builder(Level(40), Skill::Farming)
                         .boostable()
-                        .build()
+                        .build(),
                 ),
                 // TODO: Figure out how to represent 47 Prayer points requirement.
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(42), Skill::Slayer)
-                        .build()
+                    SkillRequirement::builder(Level(42), Skill::Slayer).build(),
                 ),
-            ]
-        }
+            ],
+        },
     ]
-    .into_iter()
-    .map(|quest| (quest.id(), quest))
-    .collect();
+}
+
+lazy_static! {
+    pub static ref QUEST_LIST: HashMap<QuestId, Quest> = all_quests()
+        .into_iter()
+        .map(|quest| (quest.id(), quest))
+        .collect();
 }
