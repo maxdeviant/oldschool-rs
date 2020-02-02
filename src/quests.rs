@@ -411,6 +411,8 @@ pub const THE_MAGE_ARENA_II: QuestId = QuestId(-12);
 pub const SKIPPY_AND_THE_MOGRES: QuestId = QuestId(-13);
 
 fn all_quests() -> Vec<Quest> {
+    use Skill::*;
+
     vec![
         Quest {
             id: COOKS_ASSISTANT,
@@ -495,7 +497,7 @@ fn all_quests() -> Vec<Quest> {
             name: "The Knight's Sword".into(),
             kind: QuestKind::Free,
             requirements: vec![QuestRequirement::Skill(
-                SkillRequirement::builder(Level(10), Skill::Mining).build(),
+                SkillRequirement::builder(Level(10), Mining).build(),
             )],
         },
         Quest {
@@ -517,7 +519,7 @@ fn all_quests() -> Vec<Quest> {
             requirements: vec![
                 QuestRequirement::QuestPoints(32),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(8), Skill::Crafting)
+                    SkillRequirement::builder(Level(8), Crafting)
                         .ironman_only()
                         .build(),
                 ),
@@ -535,13 +537,11 @@ fn all_quests() -> Vec<Quest> {
             kind: QuestKind::Members,
             requirements: vec![
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(31), Skill::Crafting)
+                    SkillRequirement::builder(Level(31), Crafting)
                         .boostable()
                         .build(),
                 ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(36), Skill::Woodcutting).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(36), Woodcutting).build()),
             ],
         },
         Quest {
@@ -568,22 +568,22 @@ fn all_quests() -> Vec<Quest> {
                 QuestRequirement::Quest(DRAGON_SLAYER),
                 QuestRequirement::Quest(DRUIDIC_RITUAL),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(53), Skill::Cooking)
+                    SkillRequirement::builder(Level(53), Cooking)
                         .boostable()
                         .build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(53), Skill::Fishing)
+                    SkillRequirement::builder(Level(53), Fishing)
                         .boostable()
                         .build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(25), Skill::Herblore)
+                    SkillRequirement::builder(Level(25), Herblore)
                         .boostable()
                         .build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(50), Skill::Mining)
+                    SkillRequirement::builder(Level(50), Mining)
                         .boostable()
                         .build(),
                 ),
@@ -595,7 +595,7 @@ fn all_quests() -> Vec<Quest> {
             kind: QuestKind::Members,
             requirements: vec![
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(31), Skill::Prayer)
+                    SkillRequirement::builder(Level(31), Prayer)
                         .boostable()
                         .build(),
                 ),
@@ -608,22 +608,22 @@ fn all_quests() -> Vec<Quest> {
             kind: QuestKind::Members,
             requirements: vec![
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(40), Skill::Mining)
+                    SkillRequirement::builder(Level(40), Mining)
                         .boostable()
                         .build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(40), Skill::Smithing)
+                    SkillRequirement::builder(Level(40), Smithing)
                         .boostable()
                         .build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(59), Skill::Magic)
+                    SkillRequirement::builder(Level(59), Magic)
                         .boostable()
                         .build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(40), Skill::Crafting)
+                    SkillRequirement::builder(Level(40), Crafting)
                         .boostable()
                         .build(),
                 ),
@@ -634,7 +634,7 @@ fn all_quests() -> Vec<Quest> {
             name: "Tribal Totem".into(),
             kind: QuestKind::Members,
             requirements: vec![QuestRequirement::Skill(
-                SkillRequirement::builder(Level(21), Skill::Thieving).build(),
+                SkillRequirement::builder(Level(21), Thieving).build(),
             )],
         },
         Quest {
@@ -642,7 +642,7 @@ fn all_quests() -> Vec<Quest> {
             name: "Fishing Contest".into(),
             kind: QuestKind::Members,
             requirements: vec![QuestRequirement::Skill(
-                SkillRequirement::builder(Level(10), Skill::Fishing).build(),
+                SkillRequirement::builder(Level(10), Fishing).build(),
             )],
         },
         Quest {
@@ -657,13 +657,11 @@ fn all_quests() -> Vec<Quest> {
             kind: QuestKind::Members,
             requirements: vec![
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(42), Skill::Thieving)
+                    SkillRequirement::builder(Level(42), Thieving)
                         .boostable()
                         .build(),
                 ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(40), Skill::Ranged).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(40), Ranged).build()),
             ],
         },
         Quest {
@@ -678,9 +676,7 @@ fn all_quests() -> Vec<Quest> {
             kind: QuestKind::Members,
             requirements: vec![
                 QuestRequirement::Quest(MERLINS_CRYSTAL),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(20), Skill::Attack).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(20), Attack).build()),
             ],
         },
         Quest {
@@ -718,7 +714,7 @@ fn all_quests() -> Vec<Quest> {
             name: "Sea Slug".into(),
             kind: QuestKind::Members,
             requirements: vec![QuestRequirement::Skill(
-                SkillRequirement::builder(Level(30), Skill::Firemaking).build(),
+                SkillRequirement::builder(Level(30), Firemaking).build(),
             )],
         },
         Quest {
@@ -744,7 +740,7 @@ fn all_quests() -> Vec<Quest> {
             name: "The Grand Tree".into(),
             kind: QuestKind::Members,
             requirements: vec![QuestRequirement::Skill(
-                SkillRequirement::builder(Level(25), Skill::Agility)
+                SkillRequirement::builder(Level(25), Agility)
                     .boostable()
                     .build(),
             )],
@@ -755,16 +751,14 @@ fn all_quests() -> Vec<Quest> {
             kind: QuestKind::Members,
             requirements: vec![
                 QuestRequirement::Quest(JUNGLE_POTION),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(20), Crafting).build()),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(20), Skill::Crafting).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(32), Skill::Agility)
+                    SkillRequirement::builder(Level(32), Agility)
                         .boostable()
                         .build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(4), Skill::Smithing)
+                    SkillRequirement::builder(Level(4), Smithing)
                         .ironman_only()
                         .boostable()
                         .build(),
@@ -776,9 +770,7 @@ fn all_quests() -> Vec<Quest> {
             name: "Underground Pass".into(),
             kind: QuestKind::Members,
             requirements: vec![
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(25), Skill::Ranged).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(25), Ranged).build()),
                 QuestRequirement::Quest(BIOHAZARD),
             ],
         },
@@ -793,12 +785,8 @@ fn all_quests() -> Vec<Quest> {
             name: "The Tourist Trap".into(),
             kind: QuestKind::Members,
             requirements: vec![
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(10), Skill::Fletching).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(20), Skill::Smithing).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(10), Fletching).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(20), Smithing).build()),
             ],
         },
         Quest {
@@ -806,18 +794,12 @@ fn all_quests() -> Vec<Quest> {
             name: "Watchtower".into(),
             kind: QuestKind::Members,
             requirements: vec![
-                QuestRequirement::Skill(SkillRequirement::builder(Level(15), Skill::Magic).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(15), Magic).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(15), Thieving).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(25), Agility).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(14), Herblore).build()),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(15), Skill::Thieving).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(25), Skill::Agility).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(14), Skill::Herblore).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(40), Skill::Mining)
+                    SkillRequirement::builder(Level(40), Mining)
                         .boostable()
                         .build(),
                 ),
@@ -841,15 +823,9 @@ fn all_quests() -> Vec<Quest> {
             kind: QuestKind::Members,
             requirements: vec![
                 QuestRequirement::Quest(DRUIDIC_RITUAL),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(10), Skill::Agility).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(10), Skill::Herblore).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(25), Skill::Thieving).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(10), Agility).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(10), Herblore).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(25), Thieving).build()),
             ],
         },
         Quest {
@@ -865,40 +841,32 @@ fn all_quests() -> Vec<Quest> {
             requirements: vec![
                 QuestRequirement::QuestPoints(107),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(50), Skill::Agility)
+                    SkillRequirement::builder(Level(50), Agility)
                         .boostable()
                         .build(),
                 ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(50), Crafting).build()),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(50), Skill::Crafting).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(45), Skill::Herblore)
+                    SkillRequirement::builder(Level(45), Herblore)
                         .boostable()
                         .build(),
                 ),
-                QuestRequirement::Skill(SkillRequirement::builder(Level(56), Skill::Magic).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(56), Magic).build()),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(52), Skill::Mining)
+                    SkillRequirement::builder(Level(52), Mining)
                         .boostable()
                         .build(),
                 ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(42), Prayer).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(50), Smithing).build()),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(42), Skill::Prayer).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(50), Skill::Smithing).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(50), Skill::Strength)
+                    SkillRequirement::builder(Level(50), Strength)
                         .boostable()
                         .build(),
                 ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(50), Thieving).build()),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(50), Skill::Thieving).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(50), Skill::Woodcutting)
+                    SkillRequirement::builder(Level(50), Woodcutting)
                         .boostable()
                         .build(),
                 ),
@@ -920,17 +888,13 @@ fn all_quests() -> Vec<Quest> {
             name: "Big Chompy Bird Hunting".into(),
             kind: QuestKind::Members,
             requirements: vec![
+                QuestRequirement::Skill(SkillRequirement::builder(Level(5), Fletching).build()),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(5), Skill::Fletching).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(30), Skill::Cooking)
+                    SkillRequirement::builder(Level(30), Cooking)
                         .boostable()
                         .build(),
                 ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(30), Skill::Ranged).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(30), Ranged).build()),
             ],
         },
         Quest {
@@ -938,15 +902,9 @@ fn all_quests() -> Vec<Quest> {
             name: "Elemental Workshop I".into(),
             kind: QuestKind::Members,
             requirements: vec![
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(20), Skill::Mining).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(20), Skill::Smithing).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(20), Skill::Crafting).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(20), Mining).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(20), Smithing).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(20), Crafting).build()),
             ],
         },
         Quest {
@@ -963,7 +921,7 @@ fn all_quests() -> Vec<Quest> {
                 QuestRequirement::Quest(PRIEST_IN_PERIL),
                 QuestRequirement::Quest(THE_RESTLESS_GHOST),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(18), Skill::Crafting)
+                    SkillRequirement::builder(Level(18), Crafting)
                         .ironman_only()
                         .build(),
                 ),
@@ -981,9 +939,7 @@ fn all_quests() -> Vec<Quest> {
             kind: QuestKind::Members,
             requirements: vec![
                 QuestRequirement::Quest(DEATH_PLATEAU),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(15), Skill::Agility).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(15), Agility).build()),
             ],
         },
         Quest {
@@ -991,15 +947,9 @@ fn all_quests() -> Vec<Quest> {
             name: "Tai Bwo Wannai Trio".into(),
             kind: QuestKind::Members,
             requirements: vec![
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(15), Skill::Agility).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(30), Skill::Cooking).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(5), Skill::Fishing).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(15), Agility).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(30), Cooking).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(5), Fishing).build()),
                 QuestRequirement::Quest(JUNGLE_POTION),
             ],
         },
@@ -1010,13 +960,11 @@ fn all_quests() -> Vec<Quest> {
             requirements: vec![
                 QuestRequirement::Quest(UNDERGROUND_PASS),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(56), Skill::Agility)
+                    SkillRequirement::builder(Level(56), Agility)
                         .boostable()
                         .build(),
                 ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(10), Skill::Crafting).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(10), Crafting).build()),
             ],
         },
         Quest {
@@ -1027,7 +975,7 @@ fn all_quests() -> Vec<Quest> {
                 QuestRequirement::Quest(DRUIDIC_RITUAL),
                 QuestRequirement::Quest(TROLL_STRONGHOLD),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(31), Skill::Herblore)
+                    SkillRequirement::builder(Level(31), Herblore)
                         .boostable()
                         .build(),
                 ),
@@ -1038,15 +986,9 @@ fn all_quests() -> Vec<Quest> {
             name: "Shades of Mort'ton".into(),
             kind: QuestKind::Members,
             requirements: vec![
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(20), Skill::Crafting).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(15), Skill::Herblore).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(5), Skill::Firemaking).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(20), Crafting).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(15), Herblore).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(5), Firemaking).build()),
             ],
         },
         Quest {
@@ -1064,7 +1006,7 @@ fn all_quests() -> Vec<Quest> {
             kind: QuestKind::Members,
             requirements: vec![
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(35), Skill::Agility)
+                    SkillRequirement::builder(Level(35), Agility)
                         .boostable()
                         .build(),
                 ),
@@ -1096,12 +1038,8 @@ fn all_quests() -> Vec<Quest> {
             name: "Haunted Mine".into(),
             kind: QuestKind::Members,
             requirements: vec![
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(15), Skill::Agility).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(35), Skill::Crafting).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(15), Agility).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(35), Crafting).build()),
                 QuestRequirement::Quest(PRIEST_IN_PERIL),
             ],
         },
@@ -1110,9 +1048,7 @@ fn all_quests() -> Vec<Quest> {
             name: "Troll Romance".into(),
             kind: QuestKind::Members,
             requirements: vec![
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(28), Skill::Agility).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(28), Agility).build()),
                 QuestRequirement::Quest(TROLL_STRONGHOLD),
                 // TODO: Figure out how to represent skill requirements for
                 // obtaining a maple or yew log for ironmen.
@@ -1125,7 +1061,7 @@ fn all_quests() -> Vec<Quest> {
             requirements: vec![
                 QuestRequirement::Quest(NATURE_SPIRIT),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(25), Skill::Agility)
+                    SkillRequirement::builder(Level(25), Agility)
                         .boostable()
                         .build(),
                 ),
@@ -1138,12 +1074,8 @@ fn all_quests() -> Vec<Quest> {
             requirements: vec![
                 QuestRequirement::Quest(PRIEST_IN_PERIL),
                 QuestRequirement::Quest(THE_RESTLESS_GHOST),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(20), Skill::Crafting).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(25), Skill::Thieving).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(20), Crafting).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(25), Thieving).build()),
             ],
         },
         Quest {
@@ -1154,7 +1086,7 @@ fn all_quests() -> Vec<Quest> {
                 QuestRequirement::Quest(REGICIDE),
                 QuestRequirement::Quest(WATERFALL_QUEST),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(56), Skill::Agility)
+                    SkillRequirement::builder(Level(56), Agility)
                         .boostable()
                         .build(),
                 ),
@@ -1168,12 +1100,12 @@ fn all_quests() -> Vec<Quest> {
                 QuestRequirement::Quest(THE_RESTLESS_GHOST),
                 QuestRequirement::Quest(PRIEST_IN_PERIL),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(25), Skill::Agility)
+                    SkillRequirement::builder(Level(25), Agility)
                         .boostable()
                         .build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(20), Skill::Cooking)
+                    SkillRequirement::builder(Level(20), Cooking)
                         .boostable()
                         .build(),
                 ),
@@ -1185,20 +1117,18 @@ fn all_quests() -> Vec<Quest> {
             kind: QuestKind::Members,
             requirements: vec![
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(36), Skill::Agility)
+                    SkillRequirement::builder(Level(36), Agility)
+                        .boostable()
+                        .build(),
+                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(25), Crafting).build()),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(18), Herblore)
                         .boostable()
                         .build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(25), Skill::Crafting).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(18), Skill::Herblore)
-                        .boostable()
-                        .build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(30), Skill::Smithing)
+                    SkillRequirement::builder(Level(30), Smithing)
                         .boostable()
                         .build(),
                 ),
@@ -1211,7 +1141,7 @@ fn all_quests() -> Vec<Quest> {
             name: "Mountain Daughter".into(),
             kind: QuestKind::Members,
             requirements: vec![QuestRequirement::Skill(
-                SkillRequirement::builder(Level(20), Skill::Agility)
+                SkillRequirement::builder(Level(20), Agility)
                     .boostable()
                     .build(),
             )],
@@ -1223,16 +1153,14 @@ fn all_quests() -> Vec<Quest> {
             requirements: vec![
                 QuestRequirement::Quest(DWARF_CANNON),
                 QuestRequirement::Quest(FISHING_CONTEST),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(30), Defence).build()),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(30), Skill::Defence).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(40), Skill::Mining)
+                    SkillRequirement::builder(Level(40), Mining)
                         .boostable()
                         .build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(50), Skill::Smithing)
+                    SkillRequirement::builder(Level(50), Smithing)
                         .boostable()
                         .build(),
                 ),
@@ -1243,7 +1171,7 @@ fn all_quests() -> Vec<Quest> {
             name: "The Feud".into(),
             kind: QuestKind::Members,
             requirements: vec![QuestRequirement::Skill(
-                SkillRequirement::builder(Level(30), Skill::Thieving).build(),
+                SkillRequirement::builder(Level(30), Thieving).build(),
             )],
         },
         Quest {
@@ -1251,11 +1179,9 @@ fn all_quests() -> Vec<Quest> {
             name: "The Golem".into(),
             kind: QuestKind::Members,
             requirements: vec![
+                QuestRequirement::Skill(SkillRequirement::builder(Level(20), Crafting).build()),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(20), Skill::Crafting).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(25), Skill::Thieving)
+                    SkillRequirement::builder(Level(25), Thieving)
                         .boostable()
                         .build(),
                 ),
@@ -1266,18 +1192,12 @@ fn all_quests() -> Vec<Quest> {
             name: "Desert Treasure".into(),
             kind: QuestKind::Members,
             requirements: vec![
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(53), Skill::Thieving).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(50), Skill::Firemaking).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(53), Thieving).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(50), Firemaking).build()),
                 // TODO: Figure out how to represent that the Slayer requirement
                 // is optional if you have a Gas mask from Plague City.
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(10), Skill::Slayer).build(),
-                ),
-                QuestRequirement::Skill(SkillRequirement::builder(Level(50), Skill::Magic).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(10), Slayer).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(50), Magic).build()),
                 QuestRequirement::Quest(THE_DIG_SITE),
                 QuestRequirement::Quest(TEMPLE_OF_IKOV),
                 QuestRequirement::Quest(THE_TOURIST_TRAP),
@@ -1298,15 +1218,9 @@ fn all_quests() -> Vec<Quest> {
             kind: QuestKind::Members,
             requirements: vec![
                 QuestRequirement::QuestPoints(43),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(49), Skill::Firemaking).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(20), Skill::Crafting).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(20), Skill::Mining).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(49), Firemaking).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(20), Crafting).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(20), Mining).build()),
             ],
         },
         Quest {
@@ -1316,17 +1230,11 @@ fn all_quests() -> Vec<Quest> {
             requirements: vec![
                 QuestRequirement::Quest(BIG_CHOMPY_BIRD_HUNTING),
                 QuestRequirement::Quest(JUNGLE_POTION),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(4), Smithing).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(8), Herblore).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(30), Ranged).build()),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(4), Skill::Smithing).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(8), Skill::Herblore).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(30), Skill::Ranged).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(30), Skill::Fletching)
+                    SkillRequirement::builder(Level(30), Fletching)
                         .ironman_only()
                         .build(),
                 ),
@@ -1339,15 +1247,9 @@ fn all_quests() -> Vec<Quest> {
             requirements: vec![
                 QuestRequirement::Quest(GOBLIN_DIPLOMACY),
                 QuestRequirement::Quest(RUNE_MYSTERIES),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(12), Skill::Agility).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(13), Skill::Thieving).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(17), Skill::Mining).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(12), Agility).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(13), Thieving).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(17), Mining).build()),
             ],
         },
         Quest {
@@ -1355,16 +1257,10 @@ fn all_quests() -> Vec<Quest> {
             name: "The Giant Dwarf".into(),
             kind: QuestKind::Members,
             requirements: vec![
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(12), Skill::Crafting).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(16), Skill::Firemaking).build(),
-                ),
-                QuestRequirement::Skill(SkillRequirement::builder(Level(33), Skill::Magic).build()),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(14), Skill::Thieving).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(12), Crafting).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(16), Firemaking).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(33), Magic).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(14), Thieving).build()),
             ],
         },
         Quest {
@@ -1382,11 +1278,9 @@ fn all_quests() -> Vec<Quest> {
             name: "Mourning's End Part I".into(),
             kind: QuestKind::Members,
             requirements: vec![
+                QuestRequirement::Skill(SkillRequirement::builder(Level(60), Ranged).build()),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(60), Skill::Ranged).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(50), Skill::Thieving)
+                    SkillRequirement::builder(Level(50), Thieving)
                         .boostable()
                         .build(),
                 ),
@@ -1400,12 +1294,8 @@ fn all_quests() -> Vec<Quest> {
             name: "Forgettable Tale of a Drunken Dwarf".into(),
             kind: QuestKind::Members,
             requirements: vec![
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(22), Skill::Cooking).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(17), Skill::Farming).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(22), Cooking).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(17), Farming).build()),
                 QuestRequirement::Quest(THE_GIANT_DWARF),
                 QuestRequirement::Quest(FISHING_CONTEST),
             ],
@@ -1415,9 +1305,7 @@ fn all_quests() -> Vec<Quest> {
             name: "Garden of Tranquillity".into(),
             kind: QuestKind::Members,
             requirements: vec![
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(25), Skill::Farming).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(25), Farming).build()),
                 QuestRequirement::Quest(CREATURE_OF_FENKENSTRAIN),
             ],
         },
@@ -1453,24 +1341,22 @@ fn all_quests() -> Vec<Quest> {
                 QuestRequirement::Quest(ZOGRE_FLESH_EATERS),
                 QuestRequirement::Quest(PRIEST_IN_PERIL),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(42), Skill::Crafting)
+                    SkillRequirement::builder(Level(42), Crafting)
                         .boostable()
                         .build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(50), Skill::Fishing)
+                    SkillRequirement::builder(Level(50), Fishing)
                         .boostable()
                         .build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(40), Skill::Farming)
+                    SkillRequirement::builder(Level(40), Farming)
                         .boostable()
                         .build(),
                 ),
                 // TODO: Figure out how to represent 47 Prayer points requirement.
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(42), Skill::Slayer).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(42), Slayer).build()),
             ],
         },
         Quest {
@@ -1479,7 +1365,7 @@ fn all_quests() -> Vec<Quest> {
             kind: QuestKind::Members,
             requirements: vec![
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(30), Skill::Crafting)
+                    SkillRequirement::builder(Level(30), Crafting)
                         .boostable()
                         .build(),
                 ),
@@ -1512,20 +1398,18 @@ fn all_quests() -> Vec<Quest> {
             kind: QuestKind::Members,
             requirements: vec![
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(33), Skill::Magic)
+                    SkillRequirement::builder(Level(33), Magic)
                         .boostable()
                         .build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(37), Skill::Ranged)
+                    SkillRequirement::builder(Level(37), Ranged)
                         .boostable()
                         .build(),
                 ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(37), Mining).build()),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(37), Skill::Mining).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(37), Skill::Thieving)
+                    SkillRequirement::builder(Level(37), Thieving)
                         .boostable()
                         .build(),
                 ),
@@ -1537,16 +1421,12 @@ fn all_quests() -> Vec<Quest> {
             kind: QuestKind::Members,
             requirements: vec![
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(65), Skill::Smithing)
+                    SkillRequirement::builder(Level(65), Smithing)
                         .boostable()
                         .build(),
                 ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(50), Skill::Runecraft).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(50), Skill::Fletching).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(50), Runecraft).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(50), Fletching).build()),
                 QuestRequirement::Quest(WANTED),
                 QuestRequirement::Quest(TROLL_STRONGHOLD),
                 QuestRequirement::Quest(DORICS_QUEST),
@@ -1558,12 +1438,8 @@ fn all_quests() -> Vec<Quest> {
             name: "The Hand in the Sand".into(),
             kind: QuestKind::Members,
             requirements: vec![
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(17), Skill::Thieving).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(49), Skill::Crafting).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(17), Thieving).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(49), Crafting).build()),
             ],
         },
         Quest {
@@ -1571,18 +1447,12 @@ fn all_quests() -> Vec<Quest> {
             name: "Enakhra's Lament".into(),
             kind: QuestKind::Members,
             requirements: vec![
+                QuestRequirement::Skill(SkillRequirement::builder(Level(50), Crafting).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(45), Firemaking).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(43), Prayer).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(39), Magic).build()),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(50), Skill::Crafting).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(45), Skill::Firemaking).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(43), Skill::Prayer).build(),
-                ),
-                QuestRequirement::Skill(SkillRequirement::builder(Level(39), Skill::Magic).build()),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(45), Skill::Mining)
+                    SkillRequirement::builder(Level(45), Mining)
                         .ironman_only()
                         .build(),
                 ),
@@ -1596,18 +1466,10 @@ fn all_quests() -> Vec<Quest> {
                 QuestRequirement::Quest(PIRATES_TREASURE),
                 QuestRequirement::Quest(RUM_DEAL),
                 QuestRequirement::Quest(PRIEST_IN_PERIL),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(42), Skill::Agility).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(25), Skill::Crafting).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(50), Skill::Smithing).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(40), Skill::Ranged).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(42), Agility).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(25), Crafting).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(50), Smithing).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(40), Ranged).build()),
             ],
         },
         Quest {
@@ -1627,13 +1489,9 @@ fn all_quests() -> Vec<Quest> {
             kind: QuestKind::Members,
             requirements: vec![
                 QuestRequirement::Quest(IN_SEARCH_OF_THE_MYREQUE),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(25), Skill::Crafting).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(15), Skill::Mining).build(),
-                ),
-                QuestRequirement::Skill(SkillRequirement::builder(Level(7), Skill::Magic).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(25), Crafting).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(15), Mining).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(7), Magic).build()),
             ],
         },
         Quest {
@@ -1653,9 +1511,7 @@ fn all_quests() -> Vec<Quest> {
             name: "Rag and Bone Man II".into(),
             kind: QuestKind::Members,
             requirements: vec![
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(40), Skill::Slayer).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(40), Slayer).build()),
                 QuestRequirement::Quest(RAG_AND_BONE_MAN),
                 // TODO: Figure out how to represent other partial quest requirements.
             ],
@@ -1667,31 +1523,27 @@ fn all_quests() -> Vec<Quest> {
             requirements: vec![
                 QuestRequirement::QuestPoints(100),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(66), Skill::Magic)
+                    SkillRequirement::builder(Level(66), Magic)
                         .boostable()
                         .build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(62), Skill::Cooking)
+                    SkillRequirement::builder(Level(62), Cooking)
                         .boostable()
                         .build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(62), Skill::Fishing)
+                    SkillRequirement::builder(Level(62), Fishing)
                         .boostable()
                         .build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(45), Skill::Smithing)
+                    SkillRequirement::builder(Level(45), Smithing)
                         .boostable()
                         .build(),
                 ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(42), Skill::Firemaking).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(40), Skill::Crafting).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(42), Firemaking).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(40), Crafting).build()),
                 QuestRequirement::Quest(ONE_SMALL_FAVOUR),
                 QuestRequirement::Quest(GARDEN_OF_TRANQUILLITY),
             ],
@@ -1702,12 +1554,12 @@ fn all_quests() -> Vec<Quest> {
             kind: QuestKind::Members,
             requirements: vec![
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(40), Skill::Agility)
+                    SkillRequirement::builder(Level(40), Agility)
                         .boostable()
                         .build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(40), Skill::Slayer)
+                    SkillRequirement::builder(Level(40), Slayer)
                         .boostable()
                         .build(),
                 ),
@@ -1720,12 +1572,8 @@ fn all_quests() -> Vec<Quest> {
             kind: QuestKind::Members,
             requirements: vec![
                 QuestRequirement::Quest(THE_LOST_TRIBE),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(23), Skill::Agility).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(23), Skill::Thieving).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(23), Agility).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(23), Thieving).build()),
             ],
         },
         Quest {
@@ -1734,16 +1582,14 @@ fn all_quests() -> Vec<Quest> {
             kind: QuestKind::Members,
             requirements: vec![
                 QuestRequirement::Quest(FAIRY_TALE_I_GROWING_PAINS),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(40), Thieving).build()),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(40), Skill::Thieving).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(49), Skill::Farming)
+                    SkillRequirement::builder(Level(49), Farming)
                         .boostable()
                         .build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(57), Skill::Herblore)
+                    SkillRequirement::builder(Level(57), Herblore)
                         .boostable()
                         .build(),
                 ),
@@ -1754,22 +1600,12 @@ fn all_quests() -> Vec<Quest> {
             name: "Lunar Diplomacy".into(),
             kind: QuestKind::Members,
             requirements: vec![
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(61), Skill::Crafting).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(40), Skill::Defence).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(49), Skill::Firemaking).build(),
-                ),
-                QuestRequirement::Skill(SkillRequirement::builder(Level(65), Skill::Magic).build()),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(60), Skill::Mining).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(55), Skill::Woodcutting).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(61), Crafting).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(40), Defence).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(49), Firemaking).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(65), Magic).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(60), Mining).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(55), Woodcutting).build()),
                 QuestRequirement::Quest(THE_FREMENNIK_TRIALS),
                 QuestRequirement::Quest(LOST_CITY),
                 QuestRequirement::Quest(RUNE_MYSTERIES),
@@ -1781,10 +1617,8 @@ fn all_quests() -> Vec<Quest> {
             name: "The Eyes of Glouphrie".into(),
             kind: QuestKind::Members,
             requirements: vec![
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(5), Skill::Construction).build(),
-                ),
-                QuestRequirement::Skill(SkillRequirement::builder(Level(46), Skill::Magic).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(5), Construction).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(46), Magic).build()),
                 // TODO: Figure out how to represent requirements to get a maple log.
                 QuestRequirement::Quest(THE_GRAND_TREE),
             ],
@@ -1795,25 +1629,13 @@ fn all_quests() -> Vec<Quest> {
             kind: QuestKind::Members,
             requirements: vec![
                 QuestRequirement::Quest(IN_AID_OF_THE_MYREQUE),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(5), Skill::Construction).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(20), Skill::Mining).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(22), Skill::Thieving).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(26), Skill::Agility).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(32), Skill::Crafting).build(),
-                ),
-                QuestRequirement::Skill(SkillRequirement::builder(Level(33), Skill::Magic).build()),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(40), Skill::Strength).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(5), Construction).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(20), Mining).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(22), Thieving).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(26), Agility).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(32), Crafting).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(33), Magic).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(40), Strength).build()),
             ],
         },
         Quest {
@@ -1823,18 +1645,10 @@ fn all_quests() -> Vec<Quest> {
             requirements: vec![
                 QuestRequirement::Quest(WANTED),
                 QuestRequirement::Quest(SEA_SLUG),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(30), Skill::Crafting).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(30), Skill::Runecraft).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(30), Skill::Slayer).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(30), Skill::Thieving).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(30), Crafting).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(30), Runecraft).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(30), Slayer).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(30), Thieving).build()),
             ],
         },
         Quest {
@@ -1842,10 +1656,8 @@ fn all_quests() -> Vec<Quest> {
             name: "Elemental Workshop II".into(),
             kind: QuestKind::Members,
             requirements: vec![
-                QuestRequirement::Skill(SkillRequirement::builder(Level(30), Skill::Magic).build()),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(30), Skill::Smithing).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(30), Magic).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(30), Smithing).build()),
                 QuestRequirement::Quest(ELEMENTAL_WORKSHOP_I),
             ],
         },
@@ -1854,11 +1666,9 @@ fn all_quests() -> Vec<Quest> {
             name: "My Arm's Big Adventure".into(),
             kind: QuestKind::Members,
             requirements: vec![
+                QuestRequirement::Skill(SkillRequirement::builder(Level(10), Woodcutting).build()),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(10), Skill::Woodcutting).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(29), Skill::Farming)
+                    SkillRequirement::builder(Level(29), Farming)
                         .boostable()
                         .build(),
                 ),
@@ -1874,17 +1684,13 @@ fn all_quests() -> Vec<Quest> {
             kind: QuestKind::Members,
             requirements: vec![
                 QuestRequirement::QuestPoints(20),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(20), Firemaking).build()),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(20), Skill::Firemaking).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(30), Skill::Farming)
+                    SkillRequirement::builder(Level(30), Farming)
                         .boostable()
                         .build(),
                 ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(36), Skill::Crafting).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(36), Crafting).build()),
             ],
         },
         Quest {
@@ -1892,7 +1698,7 @@ fn all_quests() -> Vec<Quest> {
             name: "Eagles' Peak".into(),
             kind: QuestKind::Members,
             requirements: vec![QuestRequirement::Skill(
-                SkillRequirement::builder(Level(27), Skill::Hunter)
+                SkillRequirement::builder(Level(27), Hunter)
                     .boostable()
                     .build(),
             )],
@@ -1905,20 +1711,12 @@ fn all_quests() -> Vec<Quest> {
                 QuestRequirement::Quest(THE_RESTLESS_GHOST),
                 QuestRequirement::Quest(ERNEST_THE_CHICKEN),
                 QuestRequirement::Quest(PRIEST_IN_PERIL),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(18), Slayer).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(19), Crafting).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(30), Ranged).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(35), Woodcutting).build()),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(18), Skill::Slayer).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(19), Skill::Crafting).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(30), Skill::Ranged).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(35), Skill::Woodcutting).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(31), Skill::Prayer)
+                    SkillRequirement::builder(Level(31), Prayer)
                         .ironman_only()
                         .build(),
                 ),
@@ -1938,21 +1736,11 @@ fn all_quests() -> Vec<Quest> {
             name: "Cold War".into(),
             kind: QuestKind::Members,
             requirements: vec![
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(10), Skill::Hunter).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(30), Skill::Agility).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(30), Skill::Crafting).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(34), Skill::Construction).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(15), Skill::Thieving).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(10), Hunter).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(30), Agility).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(30), Crafting).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(34), Construction).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(15), Thieving).build()),
                 // TODO: Figure out how to represent the requirement of having
                 // access to a crafting table 3.
             ],
@@ -1963,21 +1751,19 @@ fn all_quests() -> Vec<Quest> {
             kind: QuestKind::Members,
             requirements: vec![
                 QuestRequirement::Quest(THE_FREMENNIK_TRIALS),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(20), Construction).build()),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(20), Skill::Construction).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(40), Skill::Agility)
+                    SkillRequirement::builder(Level(40), Agility)
                         .boostable()
                         .build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(56), Skill::Woodcutting)
+                    SkillRequirement::builder(Level(56), Woodcutting)
                         .ironman_only()
                         .build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(46), Skill::Crafting)
+                    SkillRequirement::builder(Level(46), Crafting)
                         .ironman_only()
                         .build(),
                 ),
@@ -1988,7 +1774,7 @@ fn all_quests() -> Vec<Quest> {
             name: "Tower of Life".into(),
             kind: QuestKind::Members,
             requirements: vec![QuestRequirement::Skill(
-                SkillRequirement::builder(Level(10), Skill::Construction).build(),
+                SkillRequirement::builder(Level(10), Construction).build(),
             )],
         },
         Quest {
@@ -1996,15 +1782,9 @@ fn all_quests() -> Vec<Quest> {
             name: "The Great Brain Robbery".into(),
             kind: QuestKind::Members,
             requirements: vec![
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(16), Skill::Crafting).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(30), Skill::Construction).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(50), Skill::Prayer).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(16), Crafting).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(30), Construction).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(50), Prayer).build()),
                 QuestRequirement::Quest(CREATURE_OF_FENKENSTRAIN),
                 QuestRequirement::Quest(CABIN_FEVER),
                 // TODO: Add Recipe for Disaster: Pirate Pete subquest requirement.
@@ -2016,14 +1796,10 @@ fn all_quests() -> Vec<Quest> {
             kind: QuestKind::Members,
             requirements: vec![
                 QuestRequirement::Quest(RUNE_MYSTERIES),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(35), Skill::Runecraft).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(35), Runecraft).build()),
                 // TODO: Figure out how to indicate that the Mining requirement is
                 // only applicable if not using the Abyss.
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(42), Skill::Mining).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(42), Mining).build()),
             ],
         },
         Quest {
@@ -2032,11 +1808,9 @@ fn all_quests() -> Vec<Quest> {
             kind: QuestKind::Members,
             requirements: vec![
                 QuestRequirement::Quest(THE_FREMENNIK_TRIALS),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(40), Firemaking).build()),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(40), Skill::Firemaking).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(50), Skill::Woodcutting)
+                    SkillRequirement::builder(Level(50), Woodcutting)
                         .boostable()
                         .build(),
                 ),
@@ -2047,12 +1821,8 @@ fn all_quests() -> Vec<Quest> {
             name: "Another Slice of H.A.M.".into(),
             kind: QuestKind::Members,
             requirements: vec![
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(15), Skill::Attack).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(25), Skill::Prayer).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(15), Attack).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(25), Prayer).build()),
                 QuestRequirement::Quest(DEATH_TO_THE_DORGESHUUN),
                 QuestRequirement::Quest(THE_GIANT_DWARF),
                 QuestRequirement::Quest(THE_DIG_SITE),
@@ -2076,27 +1846,27 @@ fn all_quests() -> Vec<Quest> {
             requirements: vec![
                 QuestRequirement::Quest(WITCHS_HOUSE),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(45), Skill::Farming)
+                    SkillRequirement::builder(Level(45), Farming)
                         .boostable()
                         .build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(52), Skill::Herblore)
+                    SkillRequirement::builder(Level(52), Herblore)
                         .boostable()
                         .build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(58), Skill::Thieving)
+                    SkillRequirement::builder(Level(58), Thieving)
                         .boostable()
                         .build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(59), Skill::Agility)
+                    SkillRequirement::builder(Level(59), Agility)
                         .boostable()
                         .build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(71), Skill::Woodcutting)
+                    SkillRequirement::builder(Level(71), Woodcutting)
                         .boostable()
                         .build(),
                 ),
@@ -2107,10 +1877,8 @@ fn all_quests() -> Vec<Quest> {
             name: "King's Ransom".into(),
             kind: QuestKind::Members,
             requirements: vec![
-                QuestRequirement::Skill(SkillRequirement::builder(Level(45), Skill::Magic).build()),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(65), Skill::Defence).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(45), Magic).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(65), Defence).build()),
                 QuestRequirement::Quest(BLACK_KNIGHTS_FORTRESS),
                 QuestRequirement::Quest(HOLY_GRAIL),
                 QuestRequirement::Quest(MURDER_MYSTERY),
@@ -2130,21 +1898,11 @@ fn all_quests() -> Vec<Quest> {
                 // subquest.
                 QuestRequirement::Quest(TROLL_STRONGHOLD),
                 QuestRequirement::Quest(WATCHTOWER),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(69), Skill::Slayer).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(70), Skill::Crafting).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(60), Skill::Hunter).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(55), Skill::Agility).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(55), Skill::Thieving).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(69), Slayer).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(70), Crafting).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(60), Hunter).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(55), Agility).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(55), Thieving).build()),
             ],
         },
         Quest {
@@ -2173,9 +1931,7 @@ fn all_quests() -> Vec<Quest> {
             name: "The Queen of Thieves".into(),
             kind: QuestKind::Members,
             requirements: vec![
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(20), Skill::Thieving).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(20), Thieving).build()),
                 QuestRequirement::Quest(CLIENT_OF_KOUREND),
                 // TODO: Figure out how to represent 20% Port Piscarilius favor requirement.
             ],
@@ -2186,9 +1942,7 @@ fn all_quests() -> Vec<Quest> {
             kind: QuestKind::Members,
             requirements: vec![
                 QuestRequirement::Quest(CLIENT_OF_KOUREND),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(18), Skill::Agility).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(18), Agility).build()),
                 // TODO: Figure out how to represent 20% Hosidius favor requirement.
             ],
         },
@@ -2211,28 +1965,14 @@ fn all_quests() -> Vec<Quest> {
                 QuestRequirement::Quest(GHOSTS_AHOY),
                 QuestRequirement::Quest(BONE_VOYAGE),
                 QuestRequirement::Quest(CLIENT_OF_KOUREND),
-                QuestRequirement::Skill(SkillRequirement::builder(Level(75), Skill::Magic).build()),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(70), Skill::Smithing).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(68), Skill::Mining).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(62), Skill::Crafting).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(60), Skill::Agility).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(60), Skill::Thieving).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(50), Skill::Construction).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(50), Skill::Hitpoints).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(75), Magic).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(70), Smithing).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(68), Mining).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(62), Crafting).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(60), Agility).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(60), Thieving).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(50), Construction).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(50), Hitpoints).build()),
                 // TODO: Figure out how to represent the requirement of starting
                 // the Firemaking part of Barbarian Training.
             ],
@@ -2242,12 +1982,8 @@ fn all_quests() -> Vec<Quest> {
             name: "Tale of the Righteous".into(),
             kind: QuestKind::Members,
             requirements: vec![
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(16), Skill::Strength).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(10), Skill::Mining).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(16), Strength).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(10), Mining).build()),
                 QuestRequirement::Quest(CLIENT_OF_KOUREND),
                 // TODO: Figure out how to represent 20% Shayzien favor requirement.
             ],
@@ -2258,21 +1994,11 @@ fn all_quests() -> Vec<Quest> {
             kind: QuestKind::Members,
             requirements: vec![
                 QuestRequirement::Quest(DARKNESS_OF_HALLOWVALE),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(48), Skill::Crafting).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(45), Skill::Agility).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(40), Skill::Attack).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(40), Skill::Herblore).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(38), Skill::Slayer).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(48), Crafting).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(45), Agility).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(40), Attack).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(40), Herblore).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(38), Slayer).build()),
             ],
         },
         Quest {
@@ -2280,21 +2006,19 @@ fn all_quests() -> Vec<Quest> {
             name: "Making Friends with My Arm".into(),
             kind: QuestKind::Members,
             requirements: vec![
+                QuestRequirement::Skill(SkillRequirement::builder(Level(66), Firemaking).build()),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(66), Skill::Firemaking).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(72), Skill::Mining)
+                    SkillRequirement::builder(Level(72), Mining)
                         .boostable()
                         .build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(35), Skill::Construction)
+                    SkillRequirement::builder(Level(35), Construction)
                         .boostable()
                         .build(),
                 ),
                 QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(68), Skill::Agility)
+                    SkillRequirement::builder(Level(68), Agility)
                         .boostable()
                         .build(),
                 ),
@@ -2318,9 +2042,7 @@ fn all_quests() -> Vec<Quest> {
             name: "The Ascent of Arceuus".into(),
             kind: QuestKind::Members,
             requirements: vec![
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(12), Skill::Hunter).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(12), Hunter).build()),
                 QuestRequirement::Quest(CLIENT_OF_KOUREND),
                 // TODO: Figure out how to represent 20% Arceuus favor requirement.
             ],
@@ -2338,30 +2060,14 @@ fn all_quests() -> Vec<Quest> {
             requirements: vec![
                 QuestRequirement::Quest(MOURNINGS_END_PART_II),
                 QuestRequirement::Quest(MAKING_HISTORY),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(70), Skill::Agility).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(70), Skill::Construction).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(70), Skill::Farming).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(70), Skill::Herblore).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(70), Skill::Hunter).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(70), Skill::Mining).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(70), Skill::Smithing).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(70), Skill::Woodcutting).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(70), Agility).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(70), Construction).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(70), Farming).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(70), Herblore).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(70), Hunter).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(70), Mining).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(70), Smithing).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(70), Woodcutting).build()),
             ],
         },
         Quest {
@@ -2369,21 +2075,11 @@ fn all_quests() -> Vec<Quest> {
             name: "The Fremennik Exiles".into(),
             kind: QuestKind::Members,
             requirements: vec![
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(65), Skill::Crafting).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(60), Skill::Slayer).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(60), Skill::Smithing).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(60), Skill::Fishing).build(),
-                ),
-                QuestRequirement::Skill(
-                    SkillRequirement::builder(Level(55), Skill::Runecraft).build(),
-                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(65), Crafting).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(60), Slayer).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(60), Smithing).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(60), Fishing).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(55), Runecraft).build()),
                 QuestRequirement::Quest(THE_FREMENNIK_ISLES),
                 QuestRequirement::Quest(LUNAR_DIPLOMACY),
                 QuestRequirement::Quest(MOUNTAIN_DAUGHTER),
