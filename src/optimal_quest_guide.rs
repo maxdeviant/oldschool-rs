@@ -1176,6 +1176,200 @@ lazy_static! {
                 ),
             ]
         },
+        Quest {
+            id: GHOSTS_AHOY,
+            name: "Ghosts Ahoy".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Quest(THE_RESTLESS_GHOST),
+                QuestRequirement::Quest(PRIEST_IN_PERIL),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(25), Skill::Agility)
+                        .boostable()
+                        .build()
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(20), Skill::Cooking)
+                        .boostable()
+                        .build()
+                ),
+            ]
+        },
+        Quest {
+            id: ONE_SMALL_FAVOUR,
+            name: "One Small Favour".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(36), Skill::Agility)
+                        .boostable()
+                        .build()
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(25), Skill::Crafting)
+                        .build()
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(18), Skill::Herblore)
+                        .boostable()
+                        .build()
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(30), Skill::Smithing)
+                        .boostable()
+                        .build()
+                ),
+                QuestRequirement::Quest(RUNE_MYSTERIES),
+                QuestRequirement::Quest(SHILO_VILLAGE),
+            ]
+        },
+        Quest {
+            id: MOUNTAIN_DAUGHTER,
+            name: "Mountain Daughter".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(20), Skill::Agility)
+                        .boostable()
+                        .build()
+                ),
+            ]
+        },
+        Quest {
+            id: BETWEEN_A_ROCK,
+            name: "Between a Rock...".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Quest(DWARF_CANNON),
+                QuestRequirement::Quest(FISHING_CONTEST),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(30), Skill::Defence)
+                        .build()
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(40), Skill::Mining)
+                        .boostable()
+                        .build()
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(50), Skill::Smithing)
+                        .boostable()
+                        .build()
+                ),
+            ]
+        },
+        Quest {
+            id: THE_FEUD,
+            name: "The Feud".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(30), Skill::Thieving)
+                        .build()
+                ),
+            ]
+        },
+        Quest {
+            id: THE_GOLEM,
+            name: "The Golem".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(20), Skill::Crafting)
+                        .build()
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(25), Skill::Thieving)
+                        .boostable()
+                        .build()
+                ),
+            ]
+        },
+        Quest {
+            id: DESERT_TREASURE,
+            name: "Desert Treasure".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(53), Skill::Thieving)
+                        .build()
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(50), Skill::Firemaking)
+                        .build()
+                ),
+                // TODO: Figure out how to represent that the Slayer requirement
+                // is optional if you have a Gas mask from Plague City.
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(10), Skill::Slayer)
+                        .build()
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(50), Skill::Magic)
+                        .build()
+                ),
+                QuestRequirement::Quest(THE_DIG_SITE),
+                QuestRequirement::Quest(TEMPLE_OF_IKOV),
+                QuestRequirement::Quest(THE_TOURIST_TRAP),
+                QuestRequirement::Quest(TROLL_STRONGHOLD),
+                QuestRequirement::Quest(PRIEST_IN_PERIL),
+                QuestRequirement::Quest(WATERFALL_QUEST),
+            ]
+        },
+        Quest {
+            id: ICTHLARINS_LITTLE_HELPER,
+            name: "Ichlarin's Little Helper".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Quest(GERTRUDES_CAT)
+            ]
+        },
+        Quest {
+            id: TEARS_OF_GUTHIX,
+            name: "Tears of Guthix".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::QuestPoints(43),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(49), Skill::Firemaking)
+                        .build()
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(20), Skill::Crafting)
+                        .build()
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(20), Skill::Mining)
+                        .build()
+                ),
+            ]
+        },
+        Quest {
+            id: ZOGRE_FLESH_EATERS,
+            name: "Zogre Flesh Eaters".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Quest(BIG_CHOMPY_BIRD_HUNTING),
+                QuestRequirement::Quest(JUNGLE_POTION),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(4), Skill::Smithing)
+                        .build()
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(8), Skill::Herblore)
+                        .build()
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(30), Skill::Ranged)
+                        .build()
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(30), Skill::Fletching)
+                        .ironman_only()
+                        .build()
+                ),
+            ]
+        }
     ]
     .into_iter()
     .map(|quest| (quest.id(), quest))
