@@ -1983,5 +1983,175 @@ fn all_quests() -> Vec<Quest> {
                 ),
             ],
         },
+        Quest {
+            id: TOWER_OF_LIFE,
+            name: "Tower of Life".into(),
+            kind: QuestKind::Members,
+            requirements: vec![QuestRequirement::Skill(
+                SkillRequirement::builder(Level(10), Skill::Construction).build(),
+            )],
+        },
+        Quest {
+            id: THE_GREAT_BRAIN_ROBBERY,
+            name: "The Great Brain Robbery".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(16), Skill::Crafting).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(30), Skill::Construction).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(50), Skill::Prayer).build(),
+                ),
+                QuestRequirement::Quest(CREATURE_OF_FENKENSTRAIN),
+                QuestRequirement::Quest(CABIN_FEVER),
+                // TODO: Add Recipe for Disaster: Pirate Pete subquest requirement.
+            ],
+        },
+        Quest {
+            id: WHAT_LIES_BELOW,
+            name: "What Lies Below".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Quest(RUNE_MYSTERIES),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(35), Skill::Runecraft).build(),
+                ),
+                // TODO: Figure out how to indicate that the Mining requirement is
+                // only applicable if not using the Abyss.
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(42), Skill::Mining).build(),
+                ),
+            ],
+        },
+        Quest {
+            id: OLAFS_QUEST,
+            name: "Olaf's Quest".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Quest(THE_FREMENNIK_TRIALS),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(40), Skill::Firemaking).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(50), Skill::Woodcutting)
+                        .boostable()
+                        .build(),
+                ),
+            ],
+        },
+        Quest {
+            id: ANOTHER_SLICE_OF_HAM,
+            name: "Another Slice of H.A.M.".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(15), Skill::Attack).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(25), Skill::Prayer).build(),
+                ),
+                QuestRequirement::Quest(DEATH_TO_THE_DORGESHUUN),
+                QuestRequirement::Quest(THE_GIANT_DWARF),
+                QuestRequirement::Quest(THE_DIG_SITE),
+                QuestRequirement::Quest(DRUIDIC_RITUAL),
+            ],
+        },
+        Quest {
+            id: DREAM_MENTOR,
+            name: "Dream Mentor".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                // TODO: Figure out how to represent 85 Combat requirement.
+                QuestRequirement::Quest(LUNAR_DIPLOMACY),
+                QuestRequirement::Quest(EADGARS_RUSE),
+            ],
+        },
+        Quest {
+            id: GRIM_TALES,
+            name: "Grim Tales".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Quest(WITCHS_HOUSE),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(45), Skill::Farming)
+                        .boostable()
+                        .build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(52), Skill::Herblore)
+                        .boostable()
+                        .build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(58), Skill::Thieving)
+                        .boostable()
+                        .build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(59), Skill::Agility)
+                        .boostable()
+                        .build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(71), Skill::Woodcutting)
+                        .boostable()
+                        .build(),
+                ),
+            ],
+        },
+        Quest {
+            id: KINGS_RANSOM,
+            name: "King's Ransom".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Skill(SkillRequirement::builder(Level(45), Skill::Magic).build()),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(65), Skill::Defence).build(),
+                ),
+                QuestRequirement::Quest(BLACK_KNIGHTS_FORTRESS),
+                QuestRequirement::Quest(HOLY_GRAIL),
+                QuestRequirement::Quest(MURDER_MYSTERY),
+                QuestRequirement::Quest(ONE_SMALL_FAVOUR),
+            ],
+        },
+        Quest {
+            id: MONKEY_MADNESS_II,
+            name: "Monkey Madness II".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                // TODO: Figure out how to indicate that the Gnome Stronghold
+                // Route must be unlocked, requiring 60 Firemaking.
+                QuestRequirement::Quest(ENLIGHTENED_JOURNEY),
+                QuestRequirement::Quest(THE_EYES_OF_GLOUPHRIE),
+                // TODO: Add requirement for Recipe for Disaster: King Awowogei
+                // subquest.
+                QuestRequirement::Quest(TROLL_STRONGHOLD),
+                QuestRequirement::Quest(WATCHTOWER),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(69), Skill::Slayer).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(70), Skill::Crafting).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(60), Skill::Hunter).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(55), Skill::Agility).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(55), Skill::Thieving).build(),
+                ),
+            ],
+        },
+        Quest {
+            id: MISTHALIN_MYSTERY,
+            name: "Misthalin Mystery".into(),
+            kind: QuestKind::Free,
+            requirements: vec![],
+        },
     ]
 }
