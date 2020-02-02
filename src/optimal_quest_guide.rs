@@ -1043,7 +1043,139 @@ lazy_static! {
                         .build()
                 ),
             ]
-        }
+        },
+        Quest {
+            id: SHADES_OF_MORTTON,
+            name: "Shades of Mort'ton".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(20), Skill::Crafting).build()
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(15), Skill::Herblore).build()
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(5), Skill::Firemaking).build()
+                ),
+            ]
+        },
+        Quest {
+            id: THE_FREMENNIK_TRIALS,
+            name: "The Fremennik Trials".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                // TODO: Figure out how to represent skill requirements for
+                // crafting the lyre.
+            ]
+        },
+        Quest {
+            id: HORROR_FROM_THE_DEEP,
+            name: "Horror from the Deep".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(35), Skill::Agility)
+                        .boostable()
+                        .build()
+                ),
+                QuestRequirement::Quest(ALFRED_GRIMHANDS_BARCRAWL)
+            ]
+        },
+        Quest {
+            id: THRONE_OF_MISCELLANIA,
+            name: "Throne of Miscellania".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Quest(HEROES_QUEST),
+                QuestRequirement::Quest(THE_FREMENNIK_TRIALS),
+                // TODO: Figure out how to represent skill requirements for
+                // gaining favor.
+            ]
+        },
+        Quest {
+            id: MONKEY_MADNESS_I,
+            name: "Monkey Madness".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Quest(THE_GRAND_TREE),
+                QuestRequirement::Quest(TREE_GNOME_VILLAGE)
+            ]
+        },
+        Quest {
+            id: HAUNTED_MINE,
+            name: "Haunted Mine".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(15), Skill::Agility)
+                        .build()
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(35), Skill::Crafting)
+                        .build()
+                ),
+                QuestRequirement::Quest(PRIEST_IN_PERIL)
+            ]
+        },
+        Quest {
+            id: TROLL_ROMANCE,
+            name: "Troll Romance".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(28), Skill::Agility)
+                        .build()
+                ),
+                QuestRequirement::Quest(TROLL_STRONGHOLD),
+                // TODO: Figure out how to represent skill requirements for
+                // obtaining a maple or yew log for ironmen.
+            ]
+        },
+        Quest {
+            id: IN_SEARCH_OF_THE_MYREQUE,
+            name: "In Search of the Myreque".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Quest(NATURE_SPIRIT),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(25), Skill::Agility)
+                        .boostable()
+                        .build()
+                ),
+            ]
+        },
+        Quest {
+            id: CREATURE_OF_FENKENSTRAIN,
+            name: "Creature of Fenkenstrain".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Quest(PRIEST_IN_PERIL),
+                QuestRequirement::Quest(THE_RESTLESS_GHOST),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(20), Skill::Crafting)
+                        .build()
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(25), Skill::Thieving)
+                        .build()
+                ),
+            ]
+        },
+        Quest {
+            id: ROVING_ELVES,
+            name: "Roving Elves".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Quest(REGICIDE),
+                QuestRequirement::Quest(WATERFALL_QUEST),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(56), Skill::Agility)
+                        .boostable()
+                        .build()
+                ),
+            ]
+        },
     ]
     .into_iter()
     .map(|quest| (quest.id(), quest))
