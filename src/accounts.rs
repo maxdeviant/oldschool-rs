@@ -1,5 +1,6 @@
 use crate::quests::QuestId;
 use crate::{Level, Xp};
+use crate::skills::Skill;
 
 #[derive(Debug)]
 pub struct CombatLevel(i32);
@@ -12,6 +13,36 @@ pub struct Account {
 }
 
 impl Account {
+    pub fn get_level(&self, skill: &Skill) -> Level {
+        let xp = match skill {
+            Skill::Attack => self.skills.attack,
+            Skill::Defence => self.skills.defence,
+            Skill::Strength => self.skills.strength,
+            Skill::Hitpoints => self.skills.hitpoints,
+            Skill::Ranged => self.skills.ranged,
+            Skill::Prayer => self.skills.prayer,
+            Skill::Magic => self.skills.magic,
+            Skill::Cooking => self.skills.cooking,
+            Skill::Woodcutting => self.skills.woodcutting,
+            Skill::Fletching => self.skills.fletching,
+            Skill::Fishing => self.skills.fishing,
+            Skill::Firemaking => self.skills.firemaking,
+            Skill::Crafting => self.skills.crafting,
+            Skill::Smithing => self.skills.smithing,
+            Skill::Mining => self.skills.mining,
+            Skill::Herblore => self.skills.herblore,
+            Skill::Agility => self.skills.agility,
+            Skill::Thieving => self.skills.thieving,
+            Skill::Slayer => self.skills.slayer,
+            Skill::Farming => self.skills.farming,
+            Skill::Runecraft => self.skills.runecraft,
+            Skill::Hunter => self.skills.hunter,
+            Skill::Construction => self.skills.construction,
+        };
+
+        xp.into()
+    }
+
     pub fn combat_level(self) -> CombatLevel {
         let base_level = {
             let defence: Level = self.skills.defence.into();

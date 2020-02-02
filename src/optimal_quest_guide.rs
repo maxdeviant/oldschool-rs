@@ -1,7 +1,33 @@
+use crate::accounts::Account;
 use crate::quests::{self, QuestId};
 use crate::skills::Skill;
 use crate::Level;
 
+pub struct OptimalQuestGuide<'a> {
+    account: &'a Account,
+}
+
+impl<'a> OptimalQuestGuide<'a> {
+    pub fn new(account: &'a Account) -> Self {
+        Self { account }
+    }
+
+    pub fn next_step(&self) -> Option<OptimalQuestGuideStep> {
+        optimal_quest_guide()
+            .into_iter()
+            .skip_while(|step| match step {
+                OptimalQuestGuideStep::Quest(quest_id) => {
+                    self.account.completed_quests.contains(&quest_id)
+                }
+                OptimalQuestGuideStep::Train { skill, to, .. } => {
+                    &self.account.get_level(skill) >= to
+                }
+            })
+            .next()
+    }
+}
+
+#[derive(Debug)]
 pub enum OptimalQuestGuideStep {
     Quest(QuestId),
     Train {
