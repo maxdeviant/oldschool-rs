@@ -1789,5 +1789,199 @@ fn all_quests() -> Vec<Quest> {
                 QuestRequirement::Quest(THE_GRAND_TREE),
             ],
         },
+        Quest {
+            id: DARKNESS_OF_HALLOWVALE,
+            name: "Darkness of Hallowvale".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Quest(IN_AID_OF_THE_MYREQUE),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(5), Skill::Construction).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(20), Skill::Mining).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(22), Skill::Thieving).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(26), Skill::Agility).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(32), Skill::Crafting).build(),
+                ),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(33), Skill::Magic).build()),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(40), Skill::Strength).build(),
+                ),
+            ],
+        },
+        Quest {
+            id: THE_SLUG_MENACE,
+            name: "The Slug Menace".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Quest(WANTED),
+                QuestRequirement::Quest(SEA_SLUG),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(30), Skill::Crafting).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(30), Skill::Runecraft).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(30), Skill::Slayer).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(30), Skill::Thieving).build(),
+                ),
+            ],
+        },
+        Quest {
+            id: ELEMENTAL_WORKSHOP_II,
+            name: "Elemental Workshop II".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Skill(SkillRequirement::builder(Level(30), Skill::Magic).build()),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(30), Skill::Smithing).build(),
+                ),
+                QuestRequirement::Quest(ELEMENTAL_WORKSHOP_I),
+            ],
+        },
+        Quest {
+            id: MY_ARMS_BIG_ADVENTURE,
+            name: "My Arm's Big Adventure".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(10), Skill::Woodcutting).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(29), Skill::Farming)
+                        .boostable()
+                        .build(),
+                ),
+                QuestRequirement::Quest(EADGARS_RUSE),
+                QuestRequirement::Quest(THE_FEUD),
+                QuestRequirement::Quest(JUNGLE_POTION),
+                // TODO: Figure out how to represent 60% Tai Bwo Wannai Cleanup favor.
+            ],
+        },
+        Quest {
+            id: ENLIGHTENED_JOURNEY,
+            name: "Enlightened Journey".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::QuestPoints(20),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(20), Skill::Firemaking).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(30), Skill::Farming)
+                        .boostable()
+                        .build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(36), Skill::Crafting).build(),
+                ),
+            ],
+        },
+        Quest {
+            id: EAGLES_PEAK,
+            name: "Eagles' Peak".into(),
+            kind: QuestKind::Members,
+            requirements: vec![QuestRequirement::Skill(
+                SkillRequirement::builder(Level(27), Skill::Hunter)
+                    .boostable()
+                    .build(),
+            )],
+        },
+        Quest {
+            id: ANIMAL_MAGNETISM,
+            name: "Animal Magnetism".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Quest(THE_RESTLESS_GHOST),
+                QuestRequirement::Quest(ERNEST_THE_CHICKEN),
+                QuestRequirement::Quest(PRIEST_IN_PERIL),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(18), Skill::Slayer).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(19), Skill::Crafting).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(30), Skill::Ranged).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(35), Skill::Woodcutting).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(31), Skill::Prayer)
+                        .ironman_only()
+                        .build(),
+                ),
+            ],
+        },
+        Quest {
+            id: CONTACT,
+            name: "Contact!".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Quest(PRINCE_ALI_RESCUE),
+                QuestRequirement::Quest(ICTHLARINS_LITTLE_HELPER),
+            ],
+        },
+        Quest {
+            id: COLD_WAR,
+            name: "Cold War".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(10), Skill::Hunter).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(30), Skill::Agility).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(30), Skill::Crafting).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(34), Skill::Construction).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(15), Skill::Thieving).build(),
+                ),
+                // TODO: Figure out how to represent the requirement of having
+                // access to a crafting table 3.
+            ],
+        },
+        Quest {
+            id: THE_FREMENNIK_ISLES,
+            name: "The Fremennik Isles".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Quest(THE_FREMENNIK_TRIALS),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(20), Skill::Construction).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(40), Skill::Agility)
+                        .boostable()
+                        .build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(56), Skill::Woodcutting)
+                        .ironman_only()
+                        .build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(46), Skill::Crafting)
+                        .ironman_only()
+                        .build(),
+                ),
+            ],
+        },
     ]
 }
