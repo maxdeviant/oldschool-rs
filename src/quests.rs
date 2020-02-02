@@ -2153,5 +2153,242 @@ fn all_quests() -> Vec<Quest> {
             kind: QuestKind::Free,
             requirements: vec![],
         },
+        Quest {
+            id: CLIENT_OF_KOUREND,
+            name: "Client of Kourend".into(),
+            kind: QuestKind::Members,
+            requirements: vec![],
+        },
+        Quest {
+            id: BONE_VOYAGE,
+            name: "Bone Voyage".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                // TODO: Figure out how to represent 100 Kudos requirement.
+                QuestRequirement::Quest(THE_DIG_SITE),
+            ],
+        },
+        Quest {
+            id: THE_QUEEN_OF_THIEVES,
+            name: "The Queen of Thieves".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(20), Skill::Thieving).build(),
+                ),
+                QuestRequirement::Quest(CLIENT_OF_KOUREND),
+                // TODO: Figure out how to represent 20% Port Piscarilius favor requirement.
+            ],
+        },
+        Quest {
+            id: THE_DEPTHS_OF_DESPAIR,
+            name: "The Depths of Despair".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Quest(CLIENT_OF_KOUREND),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(18), Skill::Agility).build(),
+                ),
+                // TODO: Figure out how to represent 20% Hosidius favor requirement.
+            ],
+        },
+        Quest {
+            id: THE_CORSAIR_CURSE,
+            name: "The Corsair Curse".into(),
+            kind: QuestKind::Members,
+            requirements: vec![],
+        },
+        Quest {
+            id: DRAGON_SLAYER_II,
+            name: "Dragon Slayer II".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::QuestPoints(200),
+                QuestRequirement::Quest(LEGENDS_QUEST),
+                QuestRequirement::Quest(DREAM_MENTOR),
+                QuestRequirement::Quest(A_TAIL_OF_TWO_CATS),
+                QuestRequirement::Quest(ANIMAL_MAGNETISM),
+                QuestRequirement::Quest(GHOSTS_AHOY),
+                QuestRequirement::Quest(BONE_VOYAGE),
+                QuestRequirement::Quest(CLIENT_OF_KOUREND),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(75), Skill::Magic).build()),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(70), Skill::Smithing).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(68), Skill::Mining).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(62), Skill::Crafting).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(60), Skill::Agility).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(60), Skill::Thieving).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(50), Skill::Construction).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(50), Skill::Hitpoints).build(),
+                ),
+                // TODO: Figure out how to represent the requirement of starting
+                // the Firemaking part of Barbarian Training.
+            ],
+        },
+        Quest {
+            id: TALE_OF_THE_RIGHTEOUS,
+            name: "Tale of the Righteous".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(16), Skill::Strength).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(10), Skill::Mining).build(),
+                ),
+                QuestRequirement::Quest(CLIENT_OF_KOUREND),
+                // TODO: Figure out how to represent 20% Shayzien favor requirement.
+            ],
+        },
+        Quest {
+            id: A_TASTE_OF_HOPE,
+            name: "A Taste of Hope".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Quest(DARKNESS_OF_HALLOWVALE),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(48), Skill::Crafting).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(45), Skill::Agility).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(40), Skill::Attack).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(40), Skill::Herblore).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(38), Skill::Slayer).build(),
+                ),
+            ],
+        },
+        Quest {
+            id: MAKING_FRIENDS_WITH_MY_ARM,
+            name: "Making Friends with My Arm".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(66), Skill::Firemaking).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(72), Skill::Mining)
+                        .boostable()
+                        .build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(35), Skill::Construction)
+                        .boostable()
+                        .build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(68), Skill::Agility)
+                        .boostable()
+                        .build(),
+                ),
+                QuestRequirement::Quest(MY_ARMS_BIG_ADVENTURE),
+                QuestRequirement::Quest(SWAN_SONG),
+                QuestRequirement::Quest(COLD_WAR),
+                QuestRequirement::Quest(ROMEO_AND_JULIET),
+            ],
+        },
+        Quest {
+            id: THE_FORSAKEN_TOWER,
+            name: "The Forsaken Tower".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Quest(CLIENT_OF_KOUREND),
+                // TODO: Figure out how to represent 20% Lovakengj favor requirement.
+            ],
+        },
+        Quest {
+            id: THE_ASCENT_OF_ARCEUUS,
+            name: "The Ascent of Arceuus".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(12), Skill::Hunter).build(),
+                ),
+                QuestRequirement::Quest(CLIENT_OF_KOUREND),
+                // TODO: Figure out how to represent 20% Arceuus favor requirement.
+            ],
+        },
+        Quest {
+            id: X_MARKS_THE_SPOT,
+            name: "X Marks the Spot".into(),
+            kind: QuestKind::Free,
+            requirements: vec![],
+        },
+        Quest {
+            id: SONG_OF_THE_ELVES,
+            name: "Song of the Elves".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Quest(MOURNINGS_END_PART_II),
+                QuestRequirement::Quest(MAKING_HISTORY),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(70), Skill::Agility).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(70), Skill::Construction).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(70), Skill::Farming).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(70), Skill::Herblore).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(70), Skill::Hunter).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(70), Skill::Mining).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(70), Skill::Smithing).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(70), Skill::Woodcutting).build(),
+                ),
+            ],
+        },
+        Quest {
+            id: THE_FREMENNIK_EXILES,
+            name: "The Fremennik Exiles".into(),
+            kind: QuestKind::Members,
+            requirements: vec![
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(65), Skill::Crafting).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(60), Skill::Slayer).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(60), Skill::Smithing).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(60), Skill::Fishing).build(),
+                ),
+                QuestRequirement::Skill(
+                    SkillRequirement::builder(Level(55), Skill::Runecraft).build(),
+                ),
+                QuestRequirement::Quest(THE_FREMENNIK_ISLES),
+                QuestRequirement::Quest(LUNAR_DIPLOMACY),
+                QuestRequirement::Quest(MOUNTAIN_DAUGHTER),
+                QuestRequirement::Quest(HEROES_QUEST),
+            ],
+        },
     ]
 }
