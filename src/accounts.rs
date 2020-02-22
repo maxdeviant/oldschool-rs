@@ -1,11 +1,11 @@
 use crate::quests::QuestId;
-use crate::{Level, Xp};
 use crate::skills::Skill;
+use crate::{Level, Xp};
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct CombatLevel(i32);
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Account {
     pub display_name: String,
     pub skills: Skills,
@@ -77,7 +77,7 @@ impl Account {
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Skills {
     pub attack: Xp,
     pub defence: Xp,
