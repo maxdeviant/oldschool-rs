@@ -43,37 +43,8 @@ impl Account {
         xp.into()
     }
 
-    pub fn combat_level(self) -> CombatLevel {
-        let base_level = {
-            let defence: Level = self.skills.defence.into();
-            let hitpoints: Level = self.skills.hitpoints.into();
-            let prayer: Level = self.skills.prayer.into();
-
-            (defence.0 as f32 + hitpoints.0 as f32 + (prayer.0 as f32 / 2.0).floor()) / 4.0
-        };
-
-        let melee_level = {
-            let attack: Level = self.skills.attack.into();
-            let strength: Level = self.skills.strength.into();
-
-            (attack.0 + strength.0) as f32 * 0.325
-        };
-
-        let range_level = {
-            let ranged: Level = self.skills.ranged.into();
-
-            (3.0 * ranged.0 as f32 / 2.0).floor() * 0.325
-        };
-
-        let mage_level = {
-            let magic: Level = self.skills.magic.into();
-
-            (3.0 * magic.0 as f32 / 2.0) * 0.325
-        };
-
-        let combat_level = base_level + melee_level.max(range_level.max(mage_level));
-
-        CombatLevel(combat_level.floor() as i32)
+    pub fn combat_level(&self) -> CombatLevel {
+        self.skills.combat_level()
     }
 }
 
@@ -102,4 +73,39 @@ pub struct Skills {
     pub runecraft: Xp,
     pub hunter: Xp,
     pub construction: Xp,
+}
+
+impl Skills {
+    pub fn combat_level(&self) -> CombatLevel {
+        let base_level = {
+            let defence: Level = self.defence.into();
+            let hitpoints: Level = self.hitpoints.into();
+            let prayer: Level = self.prayer.into();
+
+            (defence.0 as f32 + hitpoints.0 as f32 + (prayer.0 as f32 / 2.0).floor()) / 4.0
+        };
+
+        let melee_level = {
+            let attack: Level = self.attack.into();
+            let strength: Level = self.strength.into();
+
+            (attack.0 + strength.0) as f32 * 0.325
+        };
+
+        let range_level = {
+            let ranged: Level = self.ranged.into();
+
+            (3.0 * ranged.0 as f32 / 2.0).floor() * 0.325
+        };
+
+        let mage_level = {
+            let magic: Level = self.magic.into();
+
+            (3.0 * magic.0 as f32 / 2.0) * 0.325
+        };
+
+        let combat_level = base_level + melee_level.max(range_level.max(mage_level));
+
+        CombatLevel(combat_level.floor() as i32)
+    }
 }
