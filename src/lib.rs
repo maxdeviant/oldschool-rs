@@ -1,4 +1,4 @@
-use std::collections::HashMap;
+use std::collections::BTreeMap;
 
 use lazy_static::lazy_static;
 
@@ -25,7 +25,7 @@ impl std::ops::Sub<Xp> for Xp {
     }
 }
 
-#[derive(Debug, Hash, Eq, PartialEq, Ord, PartialOrd)]
+#[derive(Debug, Copy, Clone, Hash, Eq, PartialEq, Ord, PartialOrd)]
 pub struct Level(pub i32);
 
 impl Default for Level {
@@ -41,7 +41,7 @@ impl From<Xp> for Level {
 }
 
 lazy_static! {
-    static ref XP_TABLE: HashMap<Level, Xp> = vec![
+    static ref XP_TABLE: BTreeMap<Level, Xp> = vec![
         (1, 0.0),
         (2, 83.0),
         (3, 174.0),
@@ -152,17 +152,13 @@ fn xp_for_level(level: &Level) -> Xp {
 }
 
 pub fn level_from_xp(xp: Xp) -> Level {
-    for level in 1..99 {
-        if xp < xp_for_level(&Level(level)) {
-            return if level > 1 {
-                Level(level - 1)
-            } else {
-                Level::default()
-            };
+    for (level, xp_for_level) in XP_TABLE.iter().rev() {
+        if (xp_for_level <= &xp) {
+            return *level;
         }
     }
 
-    unreachable!()
+    return Level::default();
 }
 
 pub fn xp_til_level(xp: Xp, target_level: &Level) -> Xp {
@@ -205,6 +201,11 @@ mod tests {
     #[test]
     fn test_level_from_xp_with_10_000xp() {
         assert_eq!(level_from_xp(Xp(10_000.0)), Level(27));
+    }
+
+    #[test]
+    fn test_level_from_xp_with_13_034_431xp() {
+        assert_eq!(level_from_xp(Xp(13_034_431.0)), Level(99));
     }
 
     #[test]
