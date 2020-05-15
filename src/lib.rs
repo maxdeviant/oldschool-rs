@@ -5,6 +5,7 @@ use std::ops::Add;
 use lazy_static::lazy_static;
 
 pub mod accounts;
+pub mod diaries;
 pub mod optimal_quest_guide;
 pub mod quests;
 pub mod skills;
