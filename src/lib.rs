@@ -175,12 +175,12 @@ fn xp_for_level(level: &Level) -> Xp {
 
 pub fn level_from_xp(xp: Xp) -> Level {
     for (level, xp_for_level) in XP_TABLE.iter().rev() {
-        if (xp_for_level <= &xp) {
+        if xp_for_level <= &xp {
             return *level;
         }
     }
 
-    return Level::default();
+    Level::default()
 }
 
 pub fn xp_til_level(xp: Xp, target_level: &Level) -> Xp {
