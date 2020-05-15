@@ -260,7 +260,8 @@ pub const RECRUITMENT_DRIVE: QuestId = QuestId("recruitment_drive");
 
 pub const MOURNINGS_END_PART_I: QuestId = QuestId("mournings_end_part_i");
 
-pub const FORGETTABLE_TALE_OF_A_DRUNKEN_DWARF: QuestId = QuestId("forgettable_tale_of_a_drunken_dwarf");
+pub const FORGETTABLE_TALE_OF_A_DRUNKEN_DWARF: QuestId =
+    QuestId("forgettable_tale_of_a_drunken_dwarf");
 
 pub const GARDEN_OF_TRANQUILLITY: QuestId = QuestId("garden_of_tranquillity");
 
@@ -2083,6 +2084,104 @@ fn all_quests() -> Vec<Quest> {
                 QuestRequirement::Quest(MOUNTAIN_DAUGHTER),
                 QuestRequirement::Quest(HEROES_QUEST),
             ],
+        },
+        // Miniquests
+        Quest {
+            id: ALFRED_GRIMHANDS_BARCRAWL,
+            name: "Alfred Grimhand's Barcrawl".into(),
+            kind: QuestKind::Miniquest,
+            requirements: vec![],
+        },
+        Quest {
+            id: ARCHITECTURAL_ALLIANCE,
+            name: "Architectural Alliance".into(),
+            kind: QuestKind::Miniquest,
+            requirements: vec![
+                QuestRequirement::Skill(SkillRequirement::builder(Level(42), Mining).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(45), Smithing).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(15), Fishing).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(30), Crafting).build()),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(15), Hunter).build()),
+            ],
+        },
+        Quest {
+            id: BEAR_YOUR_SOUL,
+            name: "Bear Your Soul".into(),
+            kind: QuestKind::Miniquest,
+            requirements: vec![],
+        },
+        Quest {
+            id: CURSE_OF_THE_EMPTY_LORD,
+            name: "Curse of the Empty Lord".into(),
+            kind: QuestKind::Miniquest,
+            requirements: vec![
+                // TODO: Figure out how to represent started Desert Treasure requirement.
+            ],
+        },
+        Quest {
+            id: ENCHANTED_KEY,
+            name: "Enchanted Key".into(),
+            kind: QuestKind::Miniquest,
+            requirements: vec![QuestRequirement::Quest(MAKING_HISTORY)],
+        },
+        Quest {
+            id: ENTER_THE_ABYSS,
+            name: "Enter the Abyss".into(),
+            kind: QuestKind::Miniquest,
+            requirements: vec![QuestRequirement::Quest(RUNE_MYSTERIES)],
+        },
+        Quest {
+            id: FAMILY_PEST,
+            name: "Family Pest".into(),
+            kind: QuestKind::Miniquest,
+            requirements: vec![QuestRequirement::Quest(FAMILY_CREST)],
+        },
+        Quest {
+            id: THE_GENERALS_SHADOW,
+            name: "The General's Shadow".into(),
+            kind: QuestKind::Miniquest,
+            requirements: vec![
+                QuestRequirement::Quest(FIGHT_ARENA),
+                QuestRequirement::Quest(CURSE_OF_THE_EMPTY_LORD),
+            ],
+        },
+        Quest {
+            id: IN_SEARCH_OF_KNOWLEDGE,
+            name: "In Search of Knowledge".into(),
+            kind: QuestKind::Miniquest,
+            requirements: vec![],
+        },
+        Quest {
+            id: LAIR_OF_TARN_RAZORLOR,
+            name: "Lair of Tarn Razorlor".into(),
+            kind: QuestKind::Miniquest,
+            requirements: vec![
+                QuestRequirement::Quest(HAUNTED_MINE),
+                QuestRequirement::Skill(SkillRequirement::builder(Level(40), Slayer).build()),
+            ],
+        },
+        Quest {
+            id: THE_MAGE_ARENA,
+            name: "The Mage Arena".into(),
+            kind: QuestKind::Miniquest,
+            requirements: vec![QuestRequirement::Skill(
+                SkillRequirement::builder(Level(60), Magic).build(),
+            )],
+        },
+        Quest {
+            id: THE_MAGE_ARENA_II,
+            name: "The Mage Arena II".into(),
+            kind: QuestKind::Miniquest,
+            requirements: vec![
+                QuestRequirement::Skill(SkillRequirement::builder(Level(75), Magic).build()),
+                // TODO: Figure out how to represent the requirement to have unlocked all god spells.
+            ],
+        },
+        Quest {
+            id: SKIPPY_AND_THE_MOGRES,
+            name: "Skippy and the Mogres".into(),
+            kind: QuestKind::Miniquest,
+            requirements: vec![],
         },
     ]
 }
