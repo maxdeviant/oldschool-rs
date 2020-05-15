@@ -1,3 +1,4 @@
+use crate::diaries::DiaryId;
 use crate::quests::QuestId;
 use crate::skills::Skill;
 use crate::{Level, Xp};
@@ -10,6 +11,7 @@ pub struct Account {
     pub display_name: String,
     pub skills: Skills,
     pub completed_quests: Vec<QuestId>,
+    pub completed_diaries: Vec<DiaryId>,
 }
 
 impl Account {

@@ -1,4 +1,5 @@
 use crate::accounts::Account;
+use crate::diaries::*;
 use crate::quests::{self, QuestId};
 use crate::skills::Skill;
 use crate::Level;
@@ -19,6 +20,9 @@ impl<'a> OptimalQuestGuide<'a> {
                 OptimalQuestGuideStep::Quest(quest_id) => {
                     self.account.completed_quests.contains(&quest_id)
                 }
+                OptimalQuestGuideStep::Diary(diary_id) => {
+                    self.account.completed_diaries.contains(&diary_id)
+                }
                 OptimalQuestGuideStep::Train { skill, to, .. } => {
                     &self.account.get_level(skill) >= to
                 }
@@ -30,6 +34,7 @@ impl<'a> OptimalQuestGuide<'a> {
 #[derive(Debug)]
 pub enum OptimalQuestGuideStep {
     Quest(QuestId),
+    Diary(DiaryId),
     Train {
         skill: Skill,
         from: Level,
@@ -403,10 +408,21 @@ pub fn optimal_quest_guide() -> Vec<OptimalQuestGuideStep> {
         Quest(FAMILY_CREST),
         Quest(LEGENDS_QUEST),
         // TODO: Recipe for Disaster: Sir Amik Varze.
-        // TODO: All easy achievement diaries.
-        // TODO: Medium Ardougne diary.
-        // TODO: Medium Falador diary.
-        // TODO: Medium Varrock diary.
+        Diary(EASY_ARDOUGNE_DIARY),
+        Diary(EASY_DESERT_DIARY),
+        Diary(EASY_FALADOR_DIARY),
+        Diary(EASY_FREMENNIK_DIARY),
+        Diary(EASY_KANDARIN_DIARY),
+        Diary(EASY_KARAMJA_DIARY),
+        Diary(EASY_KOUREND_AND_KEBOS_DIARY),
+        Diary(EASY_LUMBRIDGE_AND_DRAYNOR_DIARY),
+        Diary(EASY_MORYTANIA_DIARY),
+        Diary(EASY_VARROCK_DIARY),
+        Diary(EASY_WESTERN_PROVINCES_DIARY),
+        Diary(EASY_WILDERNESS_DIARY),
+        Diary(MEDIUM_ARDOUGNE_DIARY),
+        Diary(MEDIUM_FALADOR_DIARY),
+        Diary(MEDIUM_VARROCK_DIARY),
         Train {
             skill: Herblore,
             from: Level(45),
@@ -417,7 +433,7 @@ pub fn optimal_quest_guide() -> Vec<OptimalQuestGuideStep> {
             from: Level(30),
             to: Level(50),
         },
-        // TODO: Medium Kandarin diary.
+        Diary(MEDIUM_KANDARIN_DIARY),
         Train {
             skill: Herblore,
             from: Level(48),
@@ -516,11 +532,11 @@ pub fn optimal_quest_guide() -> Vec<OptimalQuestGuideStep> {
             from: Level(29),
             to: Level(53),
         },
-        // TODO: Medium Wilderness diary.
-        // TODO: Medium Karamja diary.
-        // TODO: Medium Kourend & Kebos diary.
-        // TODO: Medium Lumbridge & Draynor diary.
-        // TODO: Medium Morytania diary.
+        Diary(MEDIUM_WILDERNESS_DIARY),
+        Diary(MEDIUM_KARAMJA_DIARY),
+        Diary(MEDIUM_KOUREND_AND_KEBOS_DIARY),
+        Diary(MEDIUM_LUMBRIDGE_AND_DRAYNOR_DIARY),
+        Diary(MEDIUM_MORYTANIA_DIARY),
         Train {
             skill: Smithing,
             from: Level(51),
@@ -591,7 +607,7 @@ pub fn optimal_quest_guide() -> Vec<OptimalQuestGuideStep> {
             from: Level(36),
             to: Level(37),
         },
-        // TODO: Medium Fremennik diary.
+        Diary(MEDIUM_FREMENNIK_DIARY),
         Train {
             skill: Construction,
             from: Level(37),
