@@ -1,4 +1,6 @@
 use std::collections::BTreeMap;
+use std::iter::Sum;
+use std::ops::Add;
 
 use lazy_static::lazy_static;
 
@@ -14,6 +16,12 @@ pub struct Xp(pub f32);
 impl Xp {
     fn max(self, other: Self) -> Self {
         Xp(f32::max(self.0, other.0))
+    }
+}
+
+impl From<Level> for Xp {
+    fn from(level: Level) -> Self {
+        xp_for_level(&level)
     }
 }
 
@@ -37,6 +45,20 @@ impl Default for Level {
 impl From<Xp> for Level {
     fn from(xp: Xp) -> Self {
         level_from_xp(xp)
+    }
+}
+
+impl Add for Level {
+    type Output = Self;
+
+    fn add(self, other: Self) -> Self {
+        Self(self.0 + other.0)
+    }
+}
+
+impl Sum for Level {
+    fn sum<I: Iterator<Item = Self>>(iter: I) -> Self {
+        iter.fold(Level(0), Add::add)
     }
 }
 
@@ -186,7 +208,12 @@ pub fn progress_towards_level(xp: Xp, target_level: &Level, starting_level: Opti
 
 #[cfg(test)]
 mod tests {
-    use super::{level_from_xp, xp_til_level, Level, Xp};
+    use super::{level_from_xp, xp_for_level, xp_til_level, Level, Xp};
+
+    #[test]
+    fn test_xp_for_level_99() {
+        assert_eq!(xp_for_level(&Level(99)), Xp(13_034_431.0));
+    }
 
     #[test]
     fn test_level_from_xp_with_0_xp() {

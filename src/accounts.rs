@@ -43,6 +43,10 @@ impl Account {
         xp.into()
     }
 
+    pub fn total_level(&self) -> Level {
+        self.skills.total_level()
+    }
+
     pub fn combat_level(&self) -> CombatLevel {
         self.skills.combat_level()
     }
@@ -76,6 +80,37 @@ pub struct Skills {
 }
 
 impl Skills {
+    pub fn total_level(&self) -> Level {
+        vec![
+            self.attack,
+            self.defence,
+            self.strength,
+            self.hitpoints,
+            self.ranged,
+            self.prayer,
+            self.magic,
+            self.cooking,
+            self.woodcutting,
+            self.fletching,
+            self.fishing,
+            self.firemaking,
+            self.crafting,
+            self.smithing,
+            self.mining,
+            self.herblore,
+            self.agility,
+            self.thieving,
+            self.slayer,
+            self.farming,
+            self.runecraft,
+            self.hunter,
+            self.construction,
+        ]
+        .into_iter()
+        .map(Level::from)
+        .sum()
+    }
+
     pub fn combat_level(&self) -> CombatLevel {
         let base_level = {
             let defence: Level = self.defence.into();
@@ -107,5 +142,73 @@ impl Skills {
         let combat_level = base_level + melee_level.max(range_level.max(mage_level));
 
         CombatLevel(combat_level.floor() as i32)
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::Skills;
+    use crate::Level;
+
+    #[test]
+    fn test_new_account_total_level() {
+        let new_account_skills = Skills {
+            attack: Level(1).into(),
+            defence: Level(1).into(),
+            strength: Level(1).into(),
+            hitpoints: Level(10).into(),
+            ranged: Level(1).into(),
+            prayer: Level(1).into(),
+            magic: Level(1).into(),
+            cooking: Level(1).into(),
+            woodcutting: Level(1).into(),
+            fletching: Level(1).into(),
+            fishing: Level(1).into(),
+            firemaking: Level(1).into(),
+            crafting: Level(1).into(),
+            smithing: Level(1).into(),
+            mining: Level(1).into(),
+            herblore: Level(1).into(),
+            agility: Level(1).into(),
+            thieving: Level(1).into(),
+            slayer: Level(1).into(),
+            farming: Level(1).into(),
+            runecraft: Level(1).into(),
+            hunter: Level(1).into(),
+            construction: Level(1).into(),
+        };
+
+        assert_eq!(new_account_skills.total_level(), Level(32));
+    }
+
+    #[test]
+    fn test_maxed_total_level() {
+        let maxed_skills = Skills {
+            attack: Level(99).into(),
+            defence: Level(99).into(),
+            strength: Level(99).into(),
+            hitpoints: Level(99).into(),
+            ranged: Level(99).into(),
+            prayer: Level(99).into(),
+            magic: Level(99).into(),
+            cooking: Level(99).into(),
+            woodcutting: Level(99).into(),
+            fletching: Level(99).into(),
+            fishing: Level(99).into(),
+            firemaking: Level(99).into(),
+            crafting: Level(99).into(),
+            smithing: Level(99).into(),
+            mining: Level(99).into(),
+            herblore: Level(99).into(),
+            agility: Level(99).into(),
+            thieving: Level(99).into(),
+            slayer: Level(99).into(),
+            farming: Level(99).into(),
+            runecraft: Level(99).into(),
+            hunter: Level(99).into(),
+            construction: Level(99).into(),
+        };
+
+        assert_eq!(maxed_skills.total_level(), Level(2277));
     }
 }
