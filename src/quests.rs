@@ -1207,7 +1207,7 @@ fn all_quests() -> Vec<Quest> {
         },
         Quest {
             id: ICTHLARINS_LITTLE_HELPER,
-            name: "Ichlarin's Little Helper".into(),
+            name: "Icthlarin's Little Helper".into(),
             kind: QuestKind::Members,
             requirements: vec![QuestRequirement::Quest(GERTRUDES_CAT)],
         },
