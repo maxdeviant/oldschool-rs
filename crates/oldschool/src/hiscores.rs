@@ -2,6 +2,7 @@ use std::collections::HashMap;
 use std::num::ParseIntError;
 use std::str::FromStr;
 
+use strum::IntoEnumIterator;
 use thiserror::Error;
 use url::Url;
 
@@ -35,6 +36,24 @@ impl Hiscore {
             .as_skill()
     }
 
+    pub fn clue_scrolls(&self, tier: ClueTier) -> Option<&ScalarHiscoreEntry> {
+        self.entries
+            .get(&HiscoreEntryKind::ClueScrolls(tier))?
+            .as_scalar()
+    }
+
+    pub fn rifts_closed(&self) -> Option<&ScalarHiscoreEntry> {
+        self.entries
+            .get(&HiscoreEntryKind::RiftsClosed)?
+            .as_scalar()
+    }
+
+    pub fn collections_logged(&self) -> Option<&ScalarHiscoreEntry> {
+        self.entries
+            .get(&HiscoreEntryKind::CollectionsLogged)?
+            .as_scalar()
+    }
+
     pub fn boss(&self, boss: Boss) -> Option<&ScalarHiscoreEntry> {
         self.entries.get(&HiscoreEntryKind::Boss(boss))?.as_scalar()
     }
@@ -56,21 +75,15 @@ impl FromStr for Hiscore {
             entries: HashMap::new(),
         };
 
-        for (ix, entry) in text.lines().map(HiscoreEntry::from_str).enumerate() {
-            let entry = entry?;
+        let entries = text
+            .lines()
+            .map(HiscoreEntry::from_str)
+            .collect::<Result<Vec<_>, _>>()?;
 
-            let entry_kind = match HiscoreEntryKind::from_index(ix as u32) {
+        for (entry_kind, entry) in HiscoreEntryKind::order().zip(entries) {
+            let entry_kind = match entry_kind {
                 Ok(kind) => kind,
-                Err(err) => {
-                    match err {
-                        KindFromIndexError::Ignore => {}
-                        KindFromIndexError::OutOfRange(ix) => {
-                            return Err(ParseHiscoreError::IndexOutOfRange(ix));
-                        }
-                    }
-
-                    continue;
-                }
+                Err(IgnoreEntry) => continue,
             };
 
             hiscore.entries.insert(entry_kind, entry);
@@ -92,122 +105,37 @@ pub enum HiscoreEntryKind {
     Boss(Boss),
 }
 
-#[derive(Debug)]
-pub enum KindFromIndexError {
-    Ignore,
-    OutOfRange(u32),
-}
+#[derive(Debug, Clone)]
+struct IgnoreEntry;
 
 impl HiscoreEntryKind {
-    fn from_index(index: u32) -> Result<HiscoreEntryKind, KindFromIndexError> {
-        match index {
-            0 => Ok(Self::Overall),
-            1 => Ok(Self::Skill(Skill::Attack)),
-            2 => Ok(Self::Skill(Skill::Defence)),
-            3 => Ok(Self::Skill(Skill::Strength)),
-            4 => Ok(Self::Skill(Skill::Hitpoints)),
-            5 => Ok(Self::Skill(Skill::Ranged)),
-            6 => Ok(Self::Skill(Skill::Prayer)),
-            7 => Ok(Self::Skill(Skill::Magic)),
-            8 => Ok(Self::Skill(Skill::Cooking)),
-            9 => Ok(Self::Skill(Skill::Woodcutting)),
-            10 => Ok(Self::Skill(Skill::Fletching)),
-            11 => Ok(Self::Skill(Skill::Fishing)),
-            12 => Ok(Self::Skill(Skill::Firemaking)),
-            13 => Ok(Self::Skill(Skill::Crafting)),
-            14 => Ok(Self::Skill(Skill::Smithing)),
-            15 => Ok(Self::Skill(Skill::Mining)),
-            16 => Ok(Self::Skill(Skill::Herblore)),
-            17 => Ok(Self::Skill(Skill::Agility)),
-            18 => Ok(Self::Skill(Skill::Thieving)),
-            19 => Ok(Self::Skill(Skill::Slayer)),
-            20 => Ok(Self::Skill(Skill::Farming)),
-            21 => Ok(Self::Skill(Skill::Runecraft)),
-            22 => Ok(Self::Skill(Skill::Hunter)),
-            23 => Ok(Self::Skill(Skill::Construction)),
-            24 => Ok(Self::Skill(Skill::Sailing)),
-            25 | 26 | 27 | 28 | 29 | 30 | 31 | 32 => Err(KindFromIndexError::Ignore),
-            33 => Ok(Self::ClueScrollsAll),
-            34 => Ok(Self::ClueScrolls(ClueTier::Beginner)),
-            35 => Ok(Self::ClueScrolls(ClueTier::Easy)),
-            36 => Ok(Self::ClueScrolls(ClueTier::Medium)),
-            37 => Ok(Self::ClueScrolls(ClueTier::Hard)),
-            38 => Ok(Self::ClueScrolls(ClueTier::Elite)),
-            39 => Ok(Self::ClueScrolls(ClueTier::Master)),
-            40 | 41 | 42 => Err(KindFromIndexError::Ignore),
-            43 => Ok(Self::RiftsClosed),
-            44 => Ok(Self::ColosseumGlory),
-            45 => Ok(Self::CollectionsLogged),
-            46 => Ok(Self::Boss(Boss::AbyssalSire)),
-            47 => Ok(Self::Boss(Boss::AlchemicalHydra)),
-            48 => Ok(Self::Boss(Boss::Amoxliatl)),
-            49 => Ok(Self::Boss(Boss::Araxxor)),
-            50 => Ok(Self::Boss(Boss::Artio)),
-            51 => Ok(Self::Boss(Boss::BarrowsChests)),
-            52 => Ok(Self::Boss(Boss::Byrophyta)),
-            53 => Ok(Self::Boss(Boss::Callisto)),
-            54 => Ok(Self::Boss(Boss::Calvarion)),
-            55 => Ok(Self::Boss(Boss::Cerberus)),
-            56 => Ok(Self::Boss(Boss::ChambersOfXeric)),
-            57 => Ok(Self::Boss(Boss::ChambersOfXericChallengeMode)),
-            58 => Ok(Self::Boss(Boss::ChaosElemental)),
-            59 => Ok(Self::Boss(Boss::ChaosFanatic)),
-            60 => Ok(Self::Boss(Boss::CommanderZilyana)),
-            61 => Ok(Self::Boss(Boss::CorporealBeast)),
-            62 => Ok(Self::Boss(Boss::CrazyArchaeologist)),
-            63 => Ok(Self::Boss(Boss::DagannothPrime)),
-            64 => Ok(Self::Boss(Boss::DagannothRex)),
-            65 => Ok(Self::Boss(Boss::DagannothSupreme)),
-            66 => Ok(Self::Boss(Boss::DerangedArchaeologist)),
-            67 => Ok(Self::Boss(Boss::DoomOfMokhaiotl)),
-            68 => Ok(Self::Boss(Boss::DukeSucellus)),
-            69 => Ok(Self::Boss(Boss::GeneralGraardor)),
-            70 => Ok(Self::Boss(Boss::GiantMole)),
-            71 => Ok(Self::Boss(Boss::GrotesqueGuardians)),
-            72 => Ok(Self::Boss(Boss::Hespori)),
-            73 => Ok(Self::Boss(Boss::KalphiteQueen)),
-            74 => Ok(Self::Boss(Boss::KingBlackDragon)),
-            75 => Ok(Self::Boss(Boss::Kraken)),
-            76 => Ok(Self::Boss(Boss::Kreearra)),
-            77 => Ok(Self::Boss(Boss::KrilTsutsaroth)),
-            78 => Ok(Self::Boss(Boss::LunarChests)),
-            79 => Ok(Self::Boss(Boss::Mimic)),
-            80 => Ok(Self::Boss(Boss::Nex)),
-            81 => Ok(Self::Boss(Boss::Nightmare)),
-            82 => Ok(Self::Boss(Boss::PhosanisNightmare)),
-            83 => Ok(Self::Boss(Boss::Obor)),
-            84 => Ok(Self::Boss(Boss::PhantomMuspah)),
-            85 => Ok(Self::Boss(Boss::Sarachnis)),
-            86 => Ok(Self::Boss(Boss::Scorpia)),
-            87 => Ok(Self::Boss(Boss::Scurrius)),
-            88 => Ok(Self::Boss(Boss::ShellbaneGryphon)),
-            89 => Ok(Self::Boss(Boss::Skotizo)),
-            90 => Ok(Self::Boss(Boss::SolHeredit)),
-            91 => Ok(Self::Boss(Boss::Spindel)),
-            92 => Ok(Self::Boss(Boss::Tempoross)),
-            93 => Ok(Self::Boss(Boss::TheGauntlet)),
-            94 => Ok(Self::Boss(Boss::TheCorruptedGauntlet)),
-            95 => Ok(Self::Boss(Boss::TheHueycoatl)),
-            96 => Ok(Self::Boss(Boss::TheLeviathan)),
-            97 => Ok(Self::Boss(Boss::TheRoyalTitans)),
-            98 => Ok(Self::Boss(Boss::TheWhisperer)),
-            99 => Ok(Self::Boss(Boss::TheatreOfBlood)),
-            100 => Ok(Self::Boss(Boss::TheatreOfBloodHardMode)),
-            101 => Ok(Self::Boss(Boss::ThermonuclearSmokeDevil)),
-            102 => Ok(Self::Boss(Boss::TombsOfAmascut)),
-            103 => Ok(Self::Boss(Boss::TombsOfAmascutExpertMode)),
-            104 => Ok(Self::Boss(Boss::TzKalZuk)),
-            105 => Ok(Self::Boss(Boss::TzTokJad)),
-            106 => Ok(Self::Boss(Boss::Vardorvis)),
-            107 => Ok(Self::Boss(Boss::Venenatis)),
-            108 => Ok(Self::Boss(Boss::Vetion)),
-            109 => Ok(Self::Boss(Boss::Vorkath)),
-            110 => Ok(Self::Boss(Boss::Wintertodt)),
-            111 => Ok(Self::Boss(Boss::Yama)),
-            112 => Ok(Self::Boss(Boss::Zalcano)),
-            113 => Ok(Self::Boss(Boss::Zulrah)),
-            index => Err(KindFromIndexError::OutOfRange(index)),
+    fn order() -> impl Iterator<Item = Result<HiscoreEntryKind, IgnoreEntry>> {
+        fn one(kind: HiscoreEntryKind) -> std::iter::Once<Result<HiscoreEntryKind, IgnoreEntry>> {
+            std::iter::once(Ok(kind))
         }
+
+        fn many(
+            kinds: impl IntoIterator<Item = HiscoreEntryKind>,
+        ) -> impl Iterator<Item = Result<HiscoreEntryKind, IgnoreEntry>> {
+            kinds.into_iter().map(Ok)
+        }
+
+        fn ignore(n: usize) -> std::iter::RepeatN<Result<HiscoreEntryKind, IgnoreEntry>> {
+            std::iter::repeat_n(Err(IgnoreEntry), n)
+        }
+
+        one(Self::Overall)
+            .chain(Skill::iter().map(|skill| Ok(Self::Skill(skill))))
+            .chain(ignore(7))
+            .chain(one(Self::ClueScrollsAll))
+            .chain(ClueTier::iter().map(|tier| Ok(Self::ClueScrolls(tier))))
+            .chain(ignore(3))
+            .chain(many([
+                Self::RiftsClosed,
+                Self::ColosseumGlory,
+                Self::CollectionsLogged,
+            ]))
+            .chain(Boss::iter().map(|boss| Ok(Self::Boss(boss))))
     }
 }
 
@@ -268,14 +196,14 @@ impl FromStr for HiscoreEntry {
     }
 }
 
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, PartialEq, Clone, Copy)]
 pub struct SkillHiscoreEntry {
     pub rank: i32,
     pub level: i32,
     pub xp: i32,
 }
 
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, PartialEq, Clone, Copy)]
 pub struct ScalarHiscoreEntry {
     pub rank: i32,
     pub amount: i32,
@@ -302,5 +230,67 @@ impl AccountType {
             Self::HardcoreIronman => "_hardcore",
             Self::Leagues => "_seasonal",
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use pretty_assertions::assert_eq;
+
+    use super::*;
+
+    #[test]
+    fn test_hiscore_parsing() {
+        let hiscore = Hiscore::from_str(include_str!("../fixtures/hiscores_1.txt")).unwrap();
+
+        assert_eq!(
+            hiscore.overall(),
+            Some(&SkillHiscoreEntry {
+                rank: 5_154,
+                level: 2376,
+                xp: 424_043_990,
+            })
+        );
+
+        assert_eq!(
+            hiscore.skill(Skill::Sailing),
+            Some(&SkillHiscoreEntry {
+                rank: 768,
+                level: 99,
+                xp: 15_437_526,
+            })
+        );
+
+        assert_eq!(
+            hiscore.clue_scrolls(ClueTier::Hard),
+            Some(&ScalarHiscoreEntry {
+                rank: 447_040,
+                amount: 50,
+            })
+        );
+
+        assert_eq!(
+            hiscore.rifts_closed(),
+            Some(&ScalarHiscoreEntry {
+                rank: 177_649,
+                amount: 220
+            })
+        );
+
+        assert_eq!(
+            hiscore.collections_logged(),
+            Some(&ScalarHiscoreEntry {
+                rank: -1,
+                amount: 388,
+            })
+        );
+
+        assert_eq!(
+            hiscore.boss(Boss::Zulrah),
+            Some(&ScalarHiscoreEntry {
+                rank: 430_027,
+                amount: 57,
+            })
+        );
     }
 }
