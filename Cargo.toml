@@ -3,3 +3,5 @@ resolver = "2"
 members = ["crates/*"]
 
 [workspace.dependencies]
+enum-map = "2.7"
+strum = "0.27"

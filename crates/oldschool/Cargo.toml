@@ -10,3 +10,5 @@ license = "MIT"
 edition = "2024"
 
 [dependencies]
+enum-map.workspace = true
+strum = { workspace = true, features = ["derive"] }

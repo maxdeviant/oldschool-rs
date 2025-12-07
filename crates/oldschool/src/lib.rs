@@ -1,1 +1,3 @@
-// Welcome to Old School RuneScape.
+mod skill;
+
+pub use skill::*;
