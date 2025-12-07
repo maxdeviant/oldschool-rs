@@ -286,7 +286,7 @@ impl QuestId {
     pub const HORROR_FROM_THE_DEEP: Self = Self::new_static("horror_from_the_deep");
 
     /// <https://oldschool.runescape.wiki/w/Icthlarin%27s_Little_Helper>
-    pub const ICHTHLARINS_LITTLE_HELPER: Self = Self::new_static("ichthlarins_little_helper");
+    pub const ICTHLARINS_LITTLE_HELPER: Self = Self::new_static("icthlarins_little_helper");
 
     /// <https://oldschool.runescape.wiki/w/In_Aid_of_the_Myreque>
     pub const IN_AID_OF_THE_MYREQUE: Self = Self::new_static("in_aid_of_the_myreque");
@@ -691,7 +691,7 @@ static ALL_QUEST_IDS: LazyLock<Vec<QuestId>> = LazyLock::new(|| {
         QuestId::HEROES_QUEST,
         QuestId::HOLY_GRAIL,
         QuestId::HORROR_FROM_THE_DEEP,
-        QuestId::ICHTHLARINS_LITTLE_HELPER,
+        QuestId::ICTHLARINS_LITTLE_HELPER,
         QuestId::IN_AID_OF_THE_MYREQUE,
         QuestId::IN_SEARCH_OF_THE_MYREQUE,
         QuestId::JUNGLE_POTION,
@@ -908,7 +908,7 @@ fn make_quests_by_id() -> HashMap<QuestId, Arc<Quest>> {
         heroes_quest(),
         holy_grail(),
         horror_from_the_deep(),
-        ichthlarins_little_helper(),
+        icthlarins_little_helper(),
         in_aid_of_the_myreque(),
         in_search_of_the_myreque(),
         jungle_potion(),
@@ -1507,7 +1507,7 @@ fn contact() -> Quest {
         quest_points: 1,
         requirements: IndexSet::from_iter([
             quest_req(QuestId::PRINCE_ALI_RESCUE),
-            quest_req(QuestId::ICHTHLARINS_LITTLE_HELPER),
+            quest_req(QuestId::ICTHLARINS_LITTLE_HELPER),
         ]),
         rewards: vec![xp_reward(Skill::Thieving, Xp(7_000.))],
     }
@@ -2503,9 +2503,9 @@ fn horror_from_the_deep() -> Quest {
 }
 
 /// <https://oldschool.runescape.wiki/w/Icthlarin%27s_Little_Helper>
-fn ichthlarins_little_helper() -> Quest {
+fn icthlarins_little_helper() -> Quest {
     Quest {
-        id: QuestId::ICHTHLARINS_LITTLE_HELPER,
+        id: QuestId::ICTHLARINS_LITTLE_HELPER,
         name: "Icthlarin's Little Helper".to_string(),
         quest_points: 2,
         requirements: IndexSet::from_iter([quest_req(QuestId::GERTRUDES_CAT)]),
@@ -3171,7 +3171,7 @@ fn ratcatchers() -> Quest {
         id: QuestId::RATCATCHERS,
         name: "Ratcatchers".to_string(),
         quest_points: 2,
-        requirements: IndexSet::from_iter([quest_req(QuestId::ICHTHLARINS_LITTLE_HELPER)]),
+        requirements: IndexSet::from_iter([quest_req(QuestId::ICTHLARINS_LITTLE_HELPER)]),
         rewards: vec![xp_reward(Skill::Thieving, Xp(4_500.))],
     }
 }
@@ -3795,7 +3795,7 @@ fn a_tail_of_two_cats() -> Quest {
         id: QuestId::A_TAIL_OF_TWO_CATS,
         name: "A Tail of Two Cats".to_string(),
         quest_points: 2,
-        requirements: IndexSet::from_iter([quest_req(QuestId::ICHTHLARINS_LITTLE_HELPER)]),
+        requirements: IndexSet::from_iter([quest_req(QuestId::ICTHLARINS_LITTLE_HELPER)]),
         rewards: Vec::new(),
     }
 }
