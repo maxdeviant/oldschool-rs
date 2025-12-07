@@ -1,6 +1,7 @@
 mod boss;
 mod clue;
 mod content;
+mod hiscores;
 mod level;
 mod quest;
 mod skill;
@@ -9,6 +10,7 @@ mod xp_table;
 
 pub use boss::*;
 pub use clue::*;
+pub use hiscores::*;
 pub use level::*;
 pub use quest::*;
 pub use skill::*;
