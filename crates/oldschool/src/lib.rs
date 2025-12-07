@@ -1,4 +1,5 @@
 mod boss;
+mod clue;
 mod content;
 mod level;
 mod quest;
@@ -7,6 +8,7 @@ mod xp;
 mod xp_table;
 
 pub use boss::*;
+pub use clue::*;
 pub use level::*;
 pub use quest::*;
 pub use skill::*;
