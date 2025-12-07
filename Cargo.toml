@@ -3,5 +3,6 @@ resolver = "2"
 members = ["crates/*"]
 
 [workspace.dependencies]
+derive_more = "2.1"
 enum-map = "2.7"
 strum = "0.27"
