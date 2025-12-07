@@ -125,6 +125,9 @@ impl QuestId {
     /// <https://oldschool.runescape.wiki/w/Creature_of_Fenkenstrain>
     pub const CREATURE_OF_FENKENSTRAIN: Self = Self::new_static("creature_of_fenkenstrain");
 
+    /// <https://oldschool.runescape.wiki/w/Current_Affairs>
+    pub const CURRENT_AFFAIRS: Self = Self::new_static("current_affairs");
+
     /// <https://oldschool.runescape.wiki/w/The_Curse_of_Arrav>
     pub const THE_CURSE_OF_ARRAV: Self = Self::new_static("the_curse_of_arrav");
 
@@ -209,6 +212,9 @@ impl QuestId {
 
     /// <https://oldschool.runescape.wiki/w/Fight_Arena>
     pub const FIGHT_ARENA: Self = Self::new_static("fight_arena");
+
+    /// <https://oldschool.runescape.wiki/w/The_Final_Dawn>
+    pub const THE_FINAL_DAWN: Self = Self::new_static("the_final_dawn");
 
     /// <https://oldschool.runescape.wiki/w/Fishing_Contest>
     pub const FISHING_CONTEST: Self = Self::new_static("fishing_contest");
@@ -363,6 +369,9 @@ impl QuestId {
     /// <https://oldschool.runescape.wiki/w/One_Small_Favour>
     pub const ONE_SMALL_FAVOUR: Self = Self::new_static("one_small_favour");
 
+    /// <https://oldschool.runescape.wiki/w/Pandemonium>
+    pub const PANDEMONIUM: Self = Self::new_static("pandemonium");
+
     /// <https://oldschool.runescape.wiki/w/The_Path_of_Glouphrie>
     pub const THE_PATH_OF_GLOUPHRIE: Self = Self::new_static("the_path_of_glouphrie");
 
@@ -377,6 +386,9 @@ impl QuestId {
 
     /// <https://oldschool.runescape.wiki/w/Priest_in_Peril>
     pub const PRIEST_IN_PERIL: Self = Self::new_static("priest_in_peril");
+
+    /// <https://oldschool.runescape.wiki/w/Prying_Times>
+    pub const PRYING_TIMES: Self = Self::new_static("prying_times");
 
     /// <https://oldschool.runescape.wiki/w/The_Queen_of_Thieves>
     pub const THE_QUEEN_OF_THIEVES: Self = Self::new_static("the_queen_of_thieves");
@@ -451,6 +463,9 @@ impl QuestId {
     /// <https://oldschool.runescape.wiki/w/Scorpion_Catcher>
     pub const SCORPION_CATCHER: Self = Self::new_static("scorpion_catcher");
 
+    /// <https://oldschool.runescape.wiki/w/Scrambled!>
+    pub const SCRAMBLED: Self = Self::new_static("scrambled");
+
     /// <https://oldschool.runescape.wiki/w/Sea_Slug>
     pub const SEA_SLUG: Self = Self::new_static("sea_slug");
 
@@ -462,6 +477,9 @@ impl QuestId {
 
     /// <https://oldschool.runescape.wiki/w/Shadow_of_the_Storm>
     pub const SHADOW_OF_THE_STORM: Self = Self::new_static("shadow_of_the_storm");
+
+    /// <https://oldschool.runescape.wiki/w/Shadows_of_Custodia>
+    pub const SHADOWS_OF_CUSTODIA: Self = Self::new_static("shadows_of_custodia");
 
     /// <https://oldschool.runescape.wiki/w/Sheep_Herder>
     pub const SHEEP_HERDER: Self = Self::new_static("sheep_herder");
@@ -531,6 +549,9 @@ impl QuestId {
 
     /// <https://oldschool.runescape.wiki/w/Troll_Stronghold>
     pub const TROLL_STRONGHOLD: Self = Self::new_static("troll_stronghold");
+
+    /// <https://oldschool.runescape.wiki/w/Troubled_Tortugans>
+    pub const TROUBLED_TORTUGANS: Self = Self::new_static("troubled_tortugans");
 
     /// <https://oldschool.runescape.wiki/w/Twilight%27s_Promise>
     pub const TWILIGHTS_PROMISE: Self = Self::new_static("twilights_promise");
@@ -617,6 +638,7 @@ static ALL_QUEST_IDS: LazyLock<Vec<QuestId>> = LazyLock::new(|| {
         QuestId::COLD_WAR,
         QuestId::CONTACT,
         QuestId::CREATURE_OF_FENKENSTRAIN,
+        QuestId::CURRENT_AFFAIRS,
         QuestId::THE_CURSE_OF_ARRAV,
         QuestId::DARKNESS_OF_HALLOWVALE,
         QuestId::DEATH_ON_THE_ISLE,
@@ -645,6 +667,7 @@ static ALL_QUEST_IDS: LazyLock<Vec<QuestId>> = LazyLock::new(|| {
         QuestId::FAMILY_CREST,
         QuestId::THE_FEUD,
         QuestId::FIGHT_ARENA,
+        QuestId::THE_FINAL_DAWN,
         QuestId::FISHING_CONTEST,
         QuestId::FORGETTABLE_TALE,
         QuestId::THE_FORSAKEN_TOWER,
@@ -696,11 +719,13 @@ static ALL_QUEST_IDS: LazyLock<Vec<QuestId>> = LazyLock::new(|| {
         QuestId::OBSERVATORY_QUEST,
         QuestId::OLAFS_QUEST,
         QuestId::ONE_SMALL_FAVOUR,
+        QuestId::PANDEMONIUM,
         QuestId::THE_PATH_OF_GLOUPHRIE,
         QuestId::PERILOUS_MOONS,
         QuestId::PLAGUE_CITY,
         QuestId::A_PORCINE_OF_INTEREST,
         QuestId::PRIEST_IN_PERIL,
+        QuestId::PRYING_TIMES,
         QuestId::THE_QUEEN_OF_THIEVES,
         QuestId::RAG_AND_BONE_MAN_I,
         QuestId::RAG_AND_BONE_MAN_II,
@@ -722,10 +747,12 @@ static ALL_QUEST_IDS: LazyLock<Vec<QuestId>> = LazyLock::new(|| {
         QuestId::ROYAL_TROUBLE,
         QuestId::RUM_DEAL,
         QuestId::SCORPION_CATCHER,
+        QuestId::SCRAMBLED,
         QuestId::SEA_SLUG,
         QuestId::SECRETS_OF_THE_NORTH,
         QuestId::SHADES_OF_MORTTON,
         QuestId::SHADOW_OF_THE_STORM,
+        QuestId::SHADOWS_OF_CUSTODIA,
         QuestId::SHEEP_HERDER,
         QuestId::SHILO_VILLAGE,
         QuestId::SINS_OF_THE_FATHER,
@@ -749,6 +776,7 @@ static ALL_QUEST_IDS: LazyLock<Vec<QuestId>> = LazyLock::new(|| {
         QuestId::TRIBAL_TOTEM,
         QuestId::TROLL_ROMANCE,
         QuestId::TROLL_STRONGHOLD,
+        QuestId::TROUBLED_TORTUGANS,
         QuestId::TWILIGHTS_PROMISE,
         QuestId::UNDERGROUND_PASS,
         QuestId::WANTED,
@@ -827,6 +855,7 @@ fn make_quests_by_id() -> HashMap<QuestId, Arc<Quest>> {
         cold_war(),
         contact(),
         creature_of_fenkenstrain(),
+        current_affairs(),
         darkness_of_hallowvale(),
         the_curse_of_arrav(),
         death_on_the_isle(),
@@ -855,6 +884,7 @@ fn make_quests_by_id() -> HashMap<QuestId, Arc<Quest>> {
         family_crest(),
         the_feud(),
         fight_arena(),
+        the_final_dawn(),
         fishing_contest(),
         forgettable_tale(),
         the_forsaken_tower(),
@@ -906,11 +936,13 @@ fn make_quests_by_id() -> HashMap<QuestId, Arc<Quest>> {
         observatory_quest(),
         olafs_quest(),
         one_small_favour(),
+        pandemonium(),
         the_path_of_glouphrie(),
         perilous_moons(),
         plague_city(),
         a_porcine_of_interest(),
         priest_in_peril(),
+        prying_times(),
         the_queen_of_thieves(),
         rag_and_bone_man_i(),
         rag_and_bone_man_ii(),
@@ -932,10 +964,12 @@ fn make_quests_by_id() -> HashMap<QuestId, Arc<Quest>> {
         royal_trouble(),
         rum_deal(),
         scorpion_catcher(),
+        scrambled(),
         sea_slug(),
         secrets_of_the_north(),
         shades_of_mortton(),
         shadow_of_the_storm(),
+        shadows_of_custodia(),
         sheep_herder(),
         shilo_village(),
         sins_of_the_father(),
@@ -959,6 +993,7 @@ fn make_quests_by_id() -> HashMap<QuestId, Arc<Quest>> {
         tribal_totem(),
         troll_romance(),
         troll_stronghold(),
+        troubled_tortugans(),
         twilights_promise(),
         underground_pass(),
         wanted(),
@@ -1494,6 +1529,24 @@ fn creature_of_fenkenstrain() -> Quest {
     }
 }
 
+/// <https://oldschool.runescape.wiki/w/Current_Affairs>
+fn current_affairs() -> Quest {
+    Quest {
+        id: QuestId::CURRENT_AFFAIRS,
+        name: "Current Affairs".to_string(),
+        quest_points: 1,
+        requirements: IndexSet::from_iter([
+            quest_req(QuestId::PANDEMONIUM),
+            skill_req(Skill::Sailing, Level(22)),
+            skill_req(Skill::Fishing, Level(10)),
+        ]),
+        rewards: vec![
+            xp_reward(Skill::Sailing, Xp(1_400.)),
+            xp_reward(Skill::Fishing, Xp(1_000.)),
+        ],
+    }
+}
+
 /// <https://oldschool.runescape.wiki/w/The_Curse_of_Arrav>
 fn the_curse_of_arrav() -> Quest {
     Quest {
@@ -2004,6 +2057,28 @@ fn fight_arena() -> Quest {
         rewards: vec![
             xp_reward(Skill::Attack, Xp(12_175.)),
             xp_reward(Skill::Thieving, Xp(2_175.)),
+        ],
+    }
+}
+
+/// <https://oldschool.runescape.wiki/w/The_Final_Dawn>
+fn the_final_dawn() -> Quest {
+    Quest {
+        id: QuestId::THE_FINAL_DAWN,
+        name: "The Final Dawn".to_string(),
+        quest_points: 3,
+        requirements: IndexSet::from_iter([
+            quest_req(QuestId::THE_HEART_OF_DARKNESS),
+            quest_req(QuestId::PERILOUS_MOONS),
+            skill_req(Skill::Thieving, Level(66)),
+            skill_req(Skill::Runecraft, Level(52)),
+            skill_req(Skill::Fletching, Level(52)),
+        ]),
+        rewards: vec![
+            xp_reward(Skill::Thieving, Xp(55_000.)),
+            xp_reward(Skill::Runecraft, Xp(25_000.)),
+            xp_reward(Skill::Fletching, Xp(25_000.)),
+            // TODO: Figure out how to model 55,000 combat lamp.
         ],
     }
 }
@@ -2932,6 +3007,17 @@ fn one_small_favour() -> Quest {
     }
 }
 
+/// <https://oldschool.runescape.wiki/w/Pandemonium>
+fn pandemonium() -> Quest {
+    Quest {
+        id: QuestId::PANDEMONIUM,
+        name: "Pandemonium".to_string(),
+        quest_points: 1,
+        requirements: IndexSet::new(),
+        rewards: vec![xp_reward(Skill::Sailing, Xp(300.))],
+    }
+}
+
 /// <https://oldschool.runescape.wiki/w/The_Path_of_Glouphrie>
 fn the_path_of_glouphrie() -> Quest {
     Quest {
@@ -3011,6 +3097,25 @@ fn priest_in_peril() -> Quest {
         quest_points: 1,
         requirements: IndexSet::new(),
         rewards: vec![xp_reward(Skill::Prayer, Xp(1_406.))],
+    }
+}
+
+/// <https://oldschool.runescape.wiki/w/Prying_Times>
+fn prying_times() -> Quest {
+    Quest {
+        id: QuestId::PRYING_TIMES,
+        name: "Prying Times".to_string(),
+        quest_points: 1,
+        requirements: IndexSet::from_iter([
+            quest_req(QuestId::PANDEMONIUM),
+            quest_req(QuestId::THE_KNIGHTS_SWORD),
+            skill_req(Skill::Smithing, Level(30)),
+            skill_req(Skill::Sailing, Level(12)),
+        ]),
+        rewards: vec![
+            xp_reward(Skill::Sailing, Xp(800.)),
+            xp_reward(Skill::Smithing, Xp(1_000.)),
+        ],
     }
 }
 
@@ -3380,6 +3485,26 @@ fn scorpion_catcher() -> Quest {
     }
 }
 
+/// <https://oldschool.runescape.wiki/w/Scrambled!>
+fn scrambled() -> Quest {
+    Quest {
+        id: QuestId::SCRAMBLED,
+        name: "Scrambled!".to_string(),
+        quest_points: 1,
+        requirements: IndexSet::from_iter([
+            quest_req(QuestId::CHILDREN_OF_THE_SUN),
+            skill_req(Skill::Construction, Level(38)),
+            skill_req(Skill::Cooking, Level(36)),
+            skill_req(Skill::Smithing, Level(35)),
+        ]),
+        rewards: vec![
+            xp_reward(Skill::Construction, Xp(5_000.)),
+            xp_reward(Skill::Cooking, Xp(5_000.)),
+            xp_reward(Skill::Smithing, Xp(5_000.)),
+        ],
+    }
+}
+
 /// <https://oldschool.runescape.wiki/w/Sea_Slug>
 fn sea_slug() -> Quest {
     Quest {
@@ -3446,6 +3571,28 @@ fn shadow_of_the_storm() -> Quest {
         ]),
         rewards: vec![
             // TODO: 10,000 experience in any combat skill other than Prayer.
+        ],
+    }
+}
+
+/// <https://oldschool.runescape.wiki/w/Shadows_of_Custodia>
+fn shadows_of_custodia() -> Quest {
+    Quest {
+        id: QuestId::SHADOWS_OF_CUSTODIA,
+        name: "Shadows of Custodia".to_string(),
+        quest_points: 2,
+        requirements: IndexSet::from_iter([
+            quest_req(QuestId::CHILDREN_OF_THE_SUN),
+            skill_req(Skill::Slayer, Level(54)),
+            skill_req(Skill::Fishing, Level(45)),
+            skill_req(Skill::Construction, Level(41)),
+            skill_req(Skill::Hunter, Level(36)),
+        ]),
+        rewards: vec![
+            xp_reward(Skill::Slayer, Xp(10_000.)),
+            xp_reward(Skill::Hunter, Xp(4_000.)),
+            xp_reward(Skill::Fishing, Xp(3_000.)),
+            xp_reward(Skill::Construction, Xp(3_000.)),
         ],
     }
 }
@@ -3837,6 +3984,28 @@ fn troll_stronghold() -> Quest {
     }
 }
 
+/// <https://oldschool.runescape.wiki/w/Troubled_Tortugans>
+fn troubled_tortugans() -> Quest {
+    Quest {
+        id: QuestId::TROUBLED_TORTUGANS,
+        name: "Troubled Tortugans".to_string(),
+        quest_points: 1,
+        requirements: IndexSet::from_iter([
+            quest_req(QuestId::PANDEMONIUM),
+            skill_req(Skill::Slayer, Level(51)),
+            skill_req(Skill::Construction, Level(48)),
+            skill_req(Skill::Sailing, Level(45)),
+            skill_req(Skill::Hunter, Level(45)),
+            skill_req(Skill::Woodcutting, Level(40)),
+            skill_req(Skill::Crafting, Level(34)),
+        ]),
+        rewards: vec![
+            xp_reward(Skill::Sailing, Xp(10_000.)),
+            xp_reward(Skill::Slayer, Xp(8_000.)),
+        ],
+    }
+}
+
 /// <https://oldschool.runescape.wiki/w/Twilight's_Promise>
 fn twilights_promise() -> Quest {
     Quest {
@@ -4004,10 +4173,14 @@ mod tests {
 
     #[test]
     fn test_all_quests_are_defined() {
-        const QUEST_COUNT: usize = 170;
+        const QUEST_COUNT: usize = 177;
         const RFD_QUEST_COUNT: usize = 9;
 
-        assert_eq!(QuestId::all().len(), QUEST_COUNT + RFD_QUEST_COUNT);
+        assert_eq!(
+            QuestId::all().len(),
+            QUEST_COUNT + RFD_QUEST_COUNT,
+            "mismatched quest count"
+        );
 
         for quest_id in QuestId::all() {
             quest_id.quest().unwrap();
@@ -4020,7 +4193,7 @@ mod tests {
             .into_iter()
             .map(|id| id.quest().unwrap().quest_points as u32)
             .sum::<u32>();
-        assert_eq!(total_quest_points, 321);
+        assert_eq!(total_quest_points, 331);
     }
 
     #[test]
