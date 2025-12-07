@@ -7,8 +7,16 @@ use crate::{Level, Skill, Xp};
 pub struct QuestId(pub(crate) SmolStr);
 
 impl QuestId {
+    pub fn new(name: &str) -> Self {
+        Self(SmolStr::new(name))
+    }
+
     pub const fn new_static(name: &'static str) -> Self {
         Self(SmolStr::new_static(name))
+    }
+
+    pub fn as_str(&self) -> &str {
+        self.0.as_str()
     }
 }
 
