@@ -1,0 +1,12 @@
+[package]
+name = "oldschool"
+version = "0.1.0"
+description = "A library for Old School RuneScape."
+repository = "https://github.com/maxdeviant/oldschool-rs"
+categories = ["games"]
+keywords = ["osrs", "runescape"]
+authors = ["Marshall Bowers <crates@maxdeviant.com>"]
+license = "MIT"
+edition = "2024"
+
+[dependencies]
